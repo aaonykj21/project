@@ -1,0 +1,105 @@
+<!--<!DOCTYPE HTML>
+<html lang= “th”>
+<body>
+    <h1>คำสั่งซื้อ</h1>
+    <a href="page1.html">1</a>
+    <a href="page2.html">2</a>
+    <a href="page3.html">3</a>
+    <a href="page4.html">4</a>
+    <a href="page5.html">5</a>
+    <a href="cart.html">6</a>
+    <a href="payment.html">7</a>
+    <form class="bread" action="" name=”SelectBread”>
+    <a href="page6.html">ต่อไป</a>
+    <h2>เลือกท็อปปิ้ง</h2>
+    <h4>เลือกได้มากกว่า 1 อย่าง</h4>
+    <label for="checkbox"></label>
+    <input type="checkbox" name="topping[]" value="mozzarellacheese">มอสซาเรลาชีส +20
+    <input type="checkbox" name="topping[]" value="cheddaecheese">ชีสแผ่น +20
+    <input type="checkbox" name="topping[]" value="egg">ไข่ +10บาท
+    <input type="checkbox" name="topping[]" value="egg">ไม่เพิ่ม
+
+    </form>
+</body>-->
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>คำสั่งซื้อ</h1>
+        <a href="page1.html">1</a>
+        <a href="page2.html">2</a>
+        <a href="page3.html">3</a>
+        <a href="page4.html">4</a>
+        <a href="page5.html">5</a>
+        <a href="payment.html">6</a><br>
+        <a href="sum_order.html">ต่อไป</a>
+        <h2>เลือกท็อปปิ้ง</h2>
+        <h4>เลือกได้มากกว่า 1 อย่าง</h4>
+         <form action="/submit_form" method="post">
+        <div class="button-container">
+            <div class="button-slide">
+        <button type="button" name="topping" value="mozzarellacheese"><img src="topping/mozcheese.png" width="150" height="100"><br>มอสซาเรลาชีส<br>+20บาท</button>
+        <input type="hidden" name="product-quantity[]" value="1">
+        <button type="button" name="topping" value="mozzarellacheese"><img src="topping/cheese.png" width="150" height="100"><br>ชีสแผ่น<br>+20บาท</button>
+        <input type="hidden" name="product-quantity[]" value="1">
+        <button type="button" name="topping" value="egg"><img src="topping/egg.png" width="150" height="100"><br>ไข่<br>+10บาท</button>
+        <input type="hidden" name="product-quantity[]" value="1">
+        </div>
+        </div>
+        <br>
+        <button type="button" id="add-button">Add to Cart</button>
+        <button type="submit">Submit</button>
+      </form>
+      <script>
+        const buttons = document.querySelectorAll('button[name="product"]');
+        const hiddenInputs = document.querySelectorAll('input[name="product-quantity[]"]');
+        /*const buttonContainer = document.querySelector('.button-container');*/
+        const buttonSlide = document.querySelector('.button-slide');
+        const addButton = document.getElementById('add-button');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+      
+        let slidePosition = 0;
+      
+        prevButton.addEventListener('click', () => {
+          slidePosition += 100 ;
+          if (slidePosition > 0) slidePosition = -100;
+          buttonSlide.style.left = `${slidePosition}%`;
+      });
+      
+      nextButton.addEventListener('click', () => {
+          slidePosition -= 100 ;
+          if (slidePosition < -100) slidePosition = 0;
+          buttonSlide.style.left = `${slidePosition}%`;
+      });
+      
+      
+        buttons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
+            button.classList.toggle('active');
+          });
+        });
+        nextButton.addEventListener('click', () => {
+          if (slidePosition > -100 * (buttonSlide.children.length - 1)) {
+              slidePosition -= 100;
+              buttonSlide.style.left = `${slidePosition}%`;
+          }
+      });
+      prevButton.addEventListener('click', () => {
+          if (slidePosition < 0) {
+              slidePosition += 100;
+              buttonSlide.style.left = `${slidePosition}%`;
+          }
+      });
+        addButton.addEventListener('click', () => {
+          buttons.forEach((button) => {
+            if (button.classList.contains('active')) {
+              button.form.submit();
+            }
+          });
+        });
+      </script>
+    </body>
+   
+</html>
