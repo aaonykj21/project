@@ -23,6 +23,7 @@
 
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="codeCSS/project.css">
     <body>
         <h1>คำสั่งซื้อ</h1>
     <a href="page1.html">1</a>
@@ -38,61 +39,43 @@
         <div class="button-container">
             <div class="button-slide">
         <button type="button" name="bread" value="wheat"><img src="bread/wheat.png" width="150" height="100"><br>วีท<br>+20บาท</button>
-        <input type="hidden" name="bread[]" value="1">
+        <input type="hidden" name="bread[]" value="0">
         <button type="button" name="bread" value="honeyoat"><img src="bread/honeyoat.png" width="150" height="100"><br>ฮันนี่ โอ๊ต<br>+30บาท</button>
-        <input type="hidden" name="bread[]" value="1">
+        <input type="hidden" name="bread[]" value="0">
         <button type="button" name="bread" value="sesame"><img src="bread/sesame.png" width="150" height="100"><br>เซซามี<br>+30บาท</button>
-        <input type="hidden" name="bread[]" value="1">
+        <input type="hidden" name="bread[]" value="0">
         <button type="button" name="bread" value="pamesanoregano"><img src="bread/pamesan.png" width="150" height="100"><br>พาร์เมซาน ออริกาโน<br>+30บาท</button>
-        <input type="hidden" name="bread[]" value="1">
+        <input type="hidden" name="bread[]" value="0">
         </div>
         </div>
         <br>
         <button type="button" id="add-button">Add to Cart</button>
         <button type="submit">Submit</button>
       </form>
+  
       <script>
-        const buttons = document.querySelectorAll('button[name="product"]');
-        const hiddenInputs = document.querySelectorAll('input[name="product-quantity[]"]');
-        /*const buttonContainer = document.querySelector('.button-container');*/
-        const buttonSlide = document.querySelector('.button-slide');
+        const buttons = document.querySelectorAll('button[name="bread"]');
+        const hiddenInputs = document.querySelectorAll('input[name="bread[]"]');
         const addButton = document.getElementById('add-button');
-        const prevButton = document.getElementById('prev-button');
-        const nextButton = document.getElementById('next-button');
-      
-        let slidePosition = 0;
-      
-        prevButton.addEventListener('click', () => {
-          slidePosition += 100 ;
-          if (slidePosition > 0) slidePosition = -100;
-          buttonSlide.style.left = `${slidePosition}%`;
-      });
-      
-      nextButton.addEventListener('click', () => {
-          slidePosition -= 100 ;
-          if (slidePosition < -100) slidePosition = 0;
-          buttonSlide.style.left = `${slidePosition}%`;
-      });
-      
       
         buttons.forEach((button, index) => {
           button.addEventListener('click', () => {
-            hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
-            button.classList.toggle('active');
+            if (button.classList.contains('active')) {
+              button.classList.remove('active');
+              hiddenInputs[index].value = 0;
+            } else {
+              buttons.forEach((btn, idx) => {
+                if (idx !== index) {
+                  btn.classList.remove('active');
+                  hiddenInputs[idx].value = 0;
+                }
+              });
+              button.classList.add('active');
+              hiddenInputs[index].value = 1;
+            }
           });
         });
-        nextButton.addEventListener('click', () => {
-          if (slidePosition > -100 * (buttonSlide.children.length - 1)) {
-              slidePosition -= 100;
-              buttonSlide.style.left = `${slidePosition}%`;
-          }
-      });
-      prevButton.addEventListener('click', () => {
-          if (slidePosition < 0) {
-              slidePosition += 100;
-              buttonSlide.style.left = `${slidePosition}%`;
-          }
-      });
+
         addButton.addEventListener('click', () => {
           buttons.forEach((button) => {
             if (button.classList.contains('active')) {

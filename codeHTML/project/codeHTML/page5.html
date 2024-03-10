@@ -24,6 +24,7 @@
 
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="codeCSS/project.css">
     <body>
         <h1>คำสั่งซื้อ</h1>
         <a href="page1.html">1</a>
@@ -50,55 +51,31 @@
         <button type="button" id="add-button">Add to Cart</button>
         <button type="submit">Submit</button>
       </form>
+
       <script>
-        const buttons = document.querySelectorAll('button[name="product"]');
+        const buttons = document.querySelectorAll('button[name="topping"]');
         const hiddenInputs = document.querySelectorAll('input[name="product-quantity[]"]');
         /*const buttonContainer = document.querySelector('.button-container');*/
         const buttonSlide = document.querySelector('.button-slide');
         const addButton = document.getElementById('add-button');
-        const prevButton = document.getElementById('prev-button');
-        const nextButton = document.getElementById('next-button');
+        const submitButton = document.getElementById('submit-button');
       
         let slidePosition = 0;
       
-        prevButton.addEventListener('click', () => {
-          slidePosition += 100 ;
-          if (slidePosition > 0) slidePosition = -100;
-          buttonSlide.style.left = `${slidePosition}%`;
-      });
-      
-      nextButton.addEventListener('click', () => {
-          slidePosition -= 100 ;
-          if (slidePosition < -100) slidePosition = 0;
-          buttonSlide.style.left = `${slidePosition}%`;
-      });
-      
-      
         buttons.forEach((button, index) => {
-          button.addEventListener('click', () => {
-            hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
-            button.classList.toggle('active');
-          });
+            button.addEventListener('click', () => {
+                hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
+                button.classList.toggle('active');
+            });
         });
-        nextButton.addEventListener('click', () => {
-          if (slidePosition > -100 * (buttonSlide.children.length - 1)) {
-              slidePosition -= 100;
-              buttonSlide.style.left = `${slidePosition}%`;
-          }
-      });
-      prevButton.addEventListener('click', () => {
-          if (slidePosition < 0) {
-              slidePosition += 100;
-              buttonSlide.style.left = `${slidePosition}%`;
-          }
-      });
         addButton.addEventListener('click', () => {
-          buttons.forEach((button) => {
-            if (button.classList.contains('active')) {
-              button.form.submit();
-            }
-          });
+            buttons.forEach((button) => {
+                if (button.classList.contains('active')) {
+                    button.form.submit();
+                }
+            });
         });
+        
       </script>
     </body>
    

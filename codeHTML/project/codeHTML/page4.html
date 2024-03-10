@@ -32,6 +32,7 @@
 
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="codeCSS/project.css">
     <body>
         <h1>คำสั่งซื้อ</h1>
         <a href="page1.html">1</a>
@@ -47,33 +48,38 @@
         <div class="button-container">
             <div class="button-slide">
         <button type="button" name="product" value="Product 1"><img src="sauce/ketchup.png" width="150" height="100"><br>ซอสมะเขือเทศ<br>ฟรี</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/mayon.png" width="150" height="100"><br>มายองเนส<br>ฟรี</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/bbq.png" width="150" height="100"><br>บาร์บีคิว<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/seasar.png" width="150" height="100"><br>ซีซาร์<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/cheese.png" width="150" height="100"><br>เชดด้า ชีส<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/chilli.png" width="150" height="100"><br>ชิลลี่<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/honeymustard.png" width="150" height="100"><br>ฮันนี่ มัสตาร์ด<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/spicymayo.png" width="150" height="100"><br>สไปซี่ มาโย<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/sweetonian.png" width="150" height="100"><br>สวีท ออนเนี่ยน<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/sweetchilli.png" width="150" height="100"><br>สวีท ชิลลี่<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         <button type="button" name="product" value="Product 1"><img src="sauce/icon1.png" width="150" height="100"><br><br>ไม่เลือก</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="product-quantity[]" value="0">
         </div>
         </div>
         <br>
         <button type="button" id="add-button">Add to Cart</button>
         <button type="submit">Submit</button>
       </form>
+      <br>
+     
+<button id="prev-button">Previous</button>
+<button id="next-button">Next</button>
+
       <script>
         const buttons = document.querySelectorAll('button[name="product"]');
         const hiddenInputs = document.querySelectorAll('input[name="product-quantity[]"]');
@@ -82,47 +88,35 @@
         const addButton = document.getElementById('add-button');
         const prevButton = document.getElementById('prev-button');
         const nextButton = document.getElementById('next-button');
+        const submitButton = document.getElementById('submit-button');
       
         let slidePosition = 0;
       
         prevButton.addEventListener('click', () => {
-          slidePosition += 100 ;
-          if (slidePosition > 0) slidePosition = -100;
-          buttonSlide.style.left = `${slidePosition}%`;
-      });
-      
-      nextButton.addEventListener('click', () => {
-          slidePosition -= 100 ;
-          if (slidePosition < -100) slidePosition = 0;
-          buttonSlide.style.left = `${slidePosition}%`;
-      });
-      
-      
-        buttons.forEach((button, index) => {
-          button.addEventListener('click', () => {
-            hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
-            button.classList.toggle('active');
-          });
+            slidePosition += 1440; // ค่าความกว้างของปุ่ม
+            if (slidePosition > 0) slidePosition = -1440;
+            buttonSlide.style.left = `${slidePosition}px`;
         });
         nextButton.addEventListener('click', () => {
-          if (slidePosition > -100 * (buttonSlide.children.length - 1)) {
-              slidePosition -= 100;
-              buttonSlide.style.left = `${slidePosition}%`;
-          }
-      });
-      prevButton.addEventListener('click', () => {
-          if (slidePosition < 0) {
-              slidePosition += 100;
-              buttonSlide.style.left = `${slidePosition}%`;
-          }
-      });
-        addButton.addEventListener('click', () => {
-          buttons.forEach((button) => {
-            if (button.classList.contains('active')) {
-              button.form.submit();
-            }
-          });
+            slidePosition -= 1440; // ค่าความกว้างของปุ่ม
+            if (slidePosition < -320 * (buttonSlide.children.length - 1)) slidePosition = 0;
+            buttonSlide.style.left = `${slidePosition}px`;
+            
         });
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
+                button.classList.toggle('active');
+            });
+        });
+        addButton.addEventListener('click', () => {
+            buttons.forEach((button) => {
+                if (button.classList.contains('active')) {
+                    button.form.submit();
+                }
+            });
+        });
+        
       </script>
     </body>
    
