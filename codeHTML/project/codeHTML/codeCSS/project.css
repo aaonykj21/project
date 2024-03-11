@@ -39,9 +39,13 @@ button {
 .active {
   background-color: #4CAF50;
   color: white;
+  display: block;
 }
 img {
   width: 340px;
   height: 320px;
   /* ทำให้สัดส่วนของรูปอัตโนมัติ */
+}
+.page {
+  display: none;
 }

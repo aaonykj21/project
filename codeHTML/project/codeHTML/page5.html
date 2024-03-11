@@ -32,51 +32,62 @@
         <a href="page3.html">3</a>
         <a href="page4.html">4</a>
         <a href="page5.html">5</a>
-        <a href="payment.html">6</a><br>
+        <a href="sum_order.html">6</a><br>
         <a href="sum_order.html">ต่อไป</a>
         <h2>เลือกท็อปปิ้ง</h2>
         <h4>เลือกได้มากกว่า 1 อย่าง</h4>
          <form action="/submit_form" method="post">
         <div class="button-container">
             <div class="button-slide">
+              <button type="button" name="topping" value="no"><img src="sauce/icon1.png"><br><br>ไม่เลือก</button>
+        <input type="hidden" name="topping-quantity[]" value="0">
         <button type="button" name="topping" value="mozzarellacheese"><img src="topping/mozcheese.png" width="150" height="100"><br>มอสซาเรลาชีส<br>+20บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="topping-quantity[]" value="1">
         <button type="button" name="topping" value="mozzarellacheese"><img src="topping/cheese.png" width="150" height="100"><br>ชีสแผ่น<br>+20บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="topping-quantity[]" value="1">
         <button type="button" name="topping" value="egg"><img src="topping/egg.png" width="150" height="100"><br>ไข่<br>+10บาท</button>
-        <input type="hidden" name="product-quantity[]" value="1">
+        <input type="hidden" name="topping-quantity[]" value="1">
         </div>
         </div>
         <br>
-        <button type="button" id="add-button">Add to Cart</button>
-        <button type="submit">Submit</button>
+        <!--button type="button" id="add-button">Add to Cart</button>
+        <button type="submit">Submit</button-->
       </form>
 
       <script>
         const buttons = document.querySelectorAll('button[name="topping"]');
-        const hiddenInputs = document.querySelectorAll('input[name="product-quantity[]"]');
-        /*const buttonContainer = document.querySelector('.button-container');*/
-        const buttonSlide = document.querySelector('.button-slide');
-        const addButton = document.getElementById('add-button');
-        const submitButton = document.getElementById('submit-button');
-      
-        let slidePosition = 0;
-      
+        const hiddenInputs = document.querySelectorAll('input[name="topping-quantity[]"]');
+
+        let selectedTopping = JSON.parse(localStorage.getItem('selectedTopping')) || [];
+    
         buttons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
                 button.classList.toggle('active');
-            });
-        });
-        addButton.addEventListener('click', () => {
-            buttons.forEach((button) => {
+    
                 if (button.classList.contains('active')) {
-                    button.form.submit();
+                    selectedTopping.push(button.value);
+                } else {
+                    const indexToRemove = selectedTopping.indexOf(button.value);
+                    if (indexToRemove !== -1) {
+                        selectedTopping.splice(indexToRemove, 1);
+                    }
                 }
+    
+                localStorage.setItem('selectedTopping', JSON.stringify(selectedTopping));
             });
         });
-        
-      </script>
+    
+        // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
+        selectedTopping.forEach((topping) => {
+            const button = document.querySelector(`button[name="topping"][value="${topping}"]`);
+            if (button) {
+                button.classList.add('active');
+                const index = Array.from(buttons).indexOf(button);
+                hiddenInputs[index].value = 1;
+            }
+        });
+    </script>
     </body>
    
 </html>
