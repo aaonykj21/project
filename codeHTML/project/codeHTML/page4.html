@@ -1,136 +1,183 @@
-<!-- <!DOCTYPE HTML>
-<html lang= “th”>
-<body>
-    <h1>คำสั่งซื้อ</h1>
-    <a href="page1.html">1</a>
-    <a href="page2.html">2</a>
-    <a href="page3.html">3</a>
-    <a href="page4.html">4</a>
-    <a href="page5.html">5</a>
-    <a href="cart.html">6</a>
-    <a href="payment.html">7</a>
-    <form class="bread" action="" name=”SelectBread”>
-        <a href="page5.html">ต่อไป</a>
-    <h2>เลือกซอส</h2>
-    <h4>เลือกได้มากกว่า 1 อย่าง</h4>
-    <label for="checkbox"></label>
-    <input type="checkbox" name="sauce[]" value="ketchup">ซอสมะเขือเทศ ฟรี
-    <input type="checkbox" name="sauce[]" value="cmayonnaise">มายองเนส ฟรี
-    <input type="checkbox" name="sauce[]" value="bbq">บาร์บีคิว +10บาท
-    <input type="checkbox" name="sauce[]" value="caesar">ซีซาร์ +10บาท
-    <input type="checkbox" name="sauce[]" value="cheddarcheese">เชดด้า ชีส +10บาท
-    <input type="checkbox" name="sauce[]" value="chili">ชิลลี่ +10บาท
-    <input type="checkbox" name="sauce[]" value="chipotlesouthwest">ชิปโพลี่ ซาวนด์เวส +10บาท
-    <input type="checkbox" name="sauce[]" value="honeymustard>ฮันนี่ มัสตาร์ด +10บาท
-    <input type="checkbox" name="sauce[]" value="mustard">มัสตาร์ด +10บาท
-    <input type="checkbox" name="sauce[]" value="spicymayo">สไปซี่ มาโย +10บาท
-    <input type="checkbox" name="sauce[]" value="sweetonion">สวีท ออนเนียน +10บาท
-    <input type="checkbox" name="sauce[]" value="thousandisland">เทาซันด์ ไอแลนด์ +10บาท
-    <input type="checkbox" name="vegetable[]" value="lcarrot">ไม่เลือก
-    </form>
-</body> -->
-
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="codeCSS/project.css">
-    <body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="codeCSS/project.css">
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+
+<body>
+    <header style="display: flex; justify-content: space-between; align-items: center;">
         <h1>คำสั่งซื้อ</h1>
-        <a href="page1.html">1</a>
-        <a href="page2.html">2</a>
-        <a href="page3.html">3</a>
-        <a href="page4.html">4</a>
-        <a href="page5.html">5</a>
-        <a href="sum_order.html">6</a><br>
-        <a href="page5.html">ต่อไป</a>
-        <h2>เลือกซอส</h2>
-        <h4>เลือกได้มากกว่า 1 อย่าง</h4>
-         <form action="/submit_form" method="post">
+        <div style="display: flex;">
+            <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
+                onclick="window.location.href='tap.html'"></i>
+            <i class="bi bi-basket" style="font-size: 30px;"></i>
+        </div>
+    </header><br>
+    <div class="button-next-1">
+        <div class="button-page" onclick="window.location.href='page1.html'">
+            <i class="bi bi-1-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page2.html'">
+            <i class="bi bi-2-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page3.html'">
+            <i class="bi bi-3-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page4.html'">
+            <i class="bi bi-4-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page5.html'">
+            <i class="bi bi-5-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='sum_order.html'">
+            <i class="bi bi-6-circle-fill"></i>
+        </div>
+    </div><br>
+    <div class="button-next-next">
+        <div class="button-next-page" onclick="window.location.href='page5.html'">ต่อไป
+        </div>
+        <h1 style="color: #FFC20D; margin-bottom: 5px;">เลือกขนมปัง</h1>
+        <h4 style="margin-top: 5px;color:#D9D9D9;">เลือกได้มากกว่า 1 อย่าง</h4>
+    </div>
+    <form action="/submit_form" method="post">
         <div class="button-container">
             <div class="button-slide">
-              <button type="button" name="sauce" value="Product 1"><img src="sauce/icon1.png"><br><br>ไม่เลือก</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/ketchup.png"><br>ซอสมะเขือเทศ<br>ฟรี</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/mayon.png"><br>มายองเนส<br>ฟรี</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/bbq.png"><br>บาร์บีคิว<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/seasar.png"><br>ซีซาร์<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/cheese.png"><br>เชดด้า ชีส<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/chilli.png"><br>ชิลลี่<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/honeymustard.png"><br>ฮันนี่ มัสตาร์ด<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/spicymayo.png"><br>สไปซี่ มาโย<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/sweetonian.png"><br>สวีท ออนเนี่ยน<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        <button type="button" name="sauce" value="Product 1"><img src="sauce/sweetchilli.png"><br>สวีท ชิลลี่<br>+10บาท</button>
-        <input type="hidden" name="sauce-quantity[]" value="0">
-        </div>
+                <button type="button" name="sauce" value="ไม่เลือก">
+                    <img src="sauce/icon1.png"><br><br>ไม่เลือก</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="ซอสมะเขือเทศ">
+                    <img src="sauce/ketchup.png"><br>ซอสมะเขือเทศ<br>ฟรี</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="มายองเนส">
+                    <img src="sauce/mayon.png"><br>มายองเนส<br>ฟรี</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="บาร์บีคิว">
+                    <img src="sauce/bbq.png"><br>บาร์บีคิว<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="ซีซาร์">
+                    <img src="sauce/seasar.png"><br>ซีซาร์<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="เชดด้าชีส">
+                    <img src="sauce/cheese.png"><br>เชดด้าชีส<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="ชิลลี่"><img
+                        src="sauce/chilli.png"><br>ชิลลี่<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="ฮันนี่มัสตาร์ด">
+                    <img src="sauce/honeymustard.png"><br>ฮันนี่มัสตาร์ด<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="สไปซี่มาโย">
+                    <img src="sauce/spicymayo.png"><br>สไปซี่มาโย<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="สวีทออนเนี่ยน">
+                    <img src="sauce/sweetonian.png"><br>สวีทออนเนี่ยน<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+                <button type="button" name="sauce" value="สวีทชิลลี่">
+                    <img src="sauce/sweetchilli.png"><br>สวีทชิลลี่<br>+10บาท</button>
+                <input type="hidden" name="sauce-quantity[]" value="0">
+            </div>
         </div>
         <br>
         <!--button type="button" id="add-button">Add to Cart</button>
         <button type="submit">Submit</button-->
-      </form>
-      <br>
-     
-<button id="prev-button">Previous</button>
-<button id="next-button">Next</button>
+    </form>
+    <div class="button-left">
+        <i id="prev-button" class="bi bi-chevron-left"></i>
+    </div>
+    <div class="button-right">
+        <i id="next-button" class="bi bi-chevron-right"></i>
+    </div>
+    <div id="selected-items">
+        <ul id="selected-list"></ul>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll('button[name="sauce"]');
+        const hiddenInputs = document.querySelectorAll('input[name="sauce-quantity[]"]');
+        const selectedList = document.getElementById('selected-list');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const addButton = document.getElementById('add-button');
+        const buttonSlide = document.querySelector('.button-slide');
 
-<script>
-    const buttons = document.querySelectorAll('button[name="sauce"]');
-    const hiddenInputs = document.querySelectorAll('input[name="sauce-quantity[]"]');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-    const addButton = document.getElementById('add-button');
-    const buttonSlide = document.querySelector('.button-slide');
+        let selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [],
+            slidePosition = 0;
 
-    let selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [],
-        slidePosition = 0;
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
+                button.classList.toggle('active');
 
-    buttons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
-            button.classList.toggle('active');
-
-            if (button.classList.contains('active')) {
-                selectedSauce.push(button.value);
-            } else {
-                const indexToRemove = selectedSauce.indexOf(button.value);
-                if (indexToRemove !== -1) {
-                    selectedSauce.splice(indexToRemove, 1);
+                if (button.classList.contains('active')) {
+                    selectedSauce.push(button.value);
+                } else {
+                    const indexToRemove = selectedSauce.indexOf(button.value);
+                    if (indexToRemove !== -1) {
+                        selectedSauce.splice(indexToRemove, 1);
+                    }
                 }
-            }
-
-            localStorage.setItem('selectedSauce', JSON.stringify(selectedSauce));
+                updateSelectedItems();
+                localStorage.setItem('selectedSauce', JSON.stringify(selectedSauce));
+            });
         });
-    });
 
-    // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
-    selectedSauce.forEach((sauce) => {
-        const button = document.querySelector(`button[name="sauce"][value="${sauce}"]`);
-        if (button) {
-            button.classList.add('active');
-            const index = Array.from(buttons).indexOf(button);
-            hiddenInputs[index].value = 1;
+        // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
+        selectedSauce.forEach((sauce) => {
+            const button = document.querySelector(`button[name="sauce"][value="${sauce}"]`);
+            if (button) {
+                button.classList.add('active');
+                const index = Array.from(buttons).indexOf(button);
+                hiddenInputs[index].value = 1;
+            }
+        });
+        function updateSelectedItems() {
+            const selectedSauce = document.querySelectorAll('.active');
+            let selectedItemsText = '';
+            selectedSauce.forEach((selectedSauce, index) => {
+                const value = selectedSauce.getAttribute('value');
+                selectedItemsText += `${value}`;
+
+            });
+
+            localStorage.setItem('selectedSauce', JSON.stringify(Array.from(selectedSauce).map(sauce => sauce.getAttribute('value'))));
         }
-    });
 
-    prevButton.addEventListener('click', () => {
-        slidePosition += 1440; // ค่าความกว้างของปุ่ม
-        if (slidePosition > 0) slidePosition = -1440;
-        buttonSlide.style.left = `${slidePosition}px`;
-    });
-    nextButton.addEventListener('click', () => {
-        slidePosition -= 1440; // ค่าความกว้างของปุ่ม
-        if (slidePosition < -320 * (buttonSlide.children.length - 1)) slidePosition = 0;
-        buttonSlide.style.left = `${slidePosition}px`;
 
-    });
-</script>
-    </body>
-   
+
+        // เพิ่มในส่วนที่จะเรียกใช้งานหน้าอื่น
+        window.addEventListener('load', () => {
+            const selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [];
+            selectedSauce.forEach(sauce => {
+                const button = document.querySelector(`button[name="sauce"][value="${sauce}"]`);
+                if (button) {
+                    button.classList.add('active');
+                    const index = Array.from(buttons).indexOf(button);
+                    hiddenInputs[index].value = 1;
+                }
+            });
+            updateSelectedItems();
+        });
+        nextButton.addEventListener('click', () => {
+            slidePosition -= 372 * 4; // ขยับไปที่ตำแหน่งของ 4 ปุ่มถัดไป
+            const numSlides = Math.ceil(buttonSlide.children.length / 4);
+            if (slidePosition <= -320 * (numSlides * 2 - 4)) {
+                slidePosition = -372 * (numSlides * 2 - 4); // กลับไปที่สไลด์สุดท้ายหากเลื่อนไปเกินจำนวนสไลด์ทั้งหมด
+                nextButton.style.display = 'none'; // ซ่อนปุ่มถัดไปเมื่ออยู่ที่สไลด์สุดท้าย
+            }
+            buttonSlide.style.left = `${slidePosition}px`; // กำหนดให้สไลด์เลื่อนไปที่ตำแหน่งใหม่
+            prevButton.style.display = 'inline'; // แสดงปุ่มย้อนกลับเมื่อสไลด์ถูกเลื่อน
+        });
+
+
+        prevButton.addEventListener('click', () => {
+            slidePosition += 372 * 4; // เลื่อนไปที่ตำแหน่งของ 4 ปุ่มก่อนหน้า
+            if (slidePosition >= 0) {
+                slidePosition = 0; // กลับไปที่เริ่มต้นหากเลื่อนไปเกินจำนวนสไลด์ทั้งหมด
+                prevButton.style.display = 'none'; // ซ่อนปุ่มย้อนกลับเมื่ออยู่ที่สไลด์เริ่มต้น
+            }
+            buttonSlide.style.left = `${slidePosition}px`; // กำหนดให้สไลด์เลื่อนไปที่ตำแหน่งใหม่
+            nextButton.style.display = 'inline'; // แสดงปุ่มถัดไปเมื่อสไลด์ถูกเลื่อน
+        });
+    </script>
+</body>
+
 </html>

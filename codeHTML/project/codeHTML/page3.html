@@ -1,95 +1,110 @@
-<!--<!DOCTYPE HTML>
-<html lang= “th”>
-<body>
-    <h1>คำสั่งซื้อ</h1>
-    <a href="page1.html">1</a>
-    <a href="page2.html">2</a>
-    <a href="page3.html">3</a>
-    <a href="page4.html">4</a>
-    <a href="page5.html">5</a>
-    <a href="cart.html">6</a>
-    <a href="payment.html">7</a>
-    <form class="bread" action="" name=”SelectBread”>
-    <a href="page4.html">ต่อไป</a>
-    <h2>เลือกผัก</h4>
-    <h4>เลือกได้มากกว่า 1 อย่าง</h4>
-    <label for="checkbox"></label>
-    <input type="checkbox" name="vegetable[]" value="lettuce">ผักกาดแก้ว +5บาท
-    <input type="checkbox" name="vegetable[]" value="tomato">มะเขือเทศ +5บาท
-    <input type="checkbox" name="vegetable[]" value="cucumber">แตงกวา +5บาท
-    <input type="checkbox" name="vegetable[]" value="pickle">แตงกวาดอง +5บาท
-    <input type="checkbox" name="vegetable[]" value="greenpepper">พริกเขียว +5บาท
-    <input type="checkbox" name="vegetable[]" value="olive">มะกอก +5บาท
-    <input type="checkbox" name="vegetable[]" value="redonion">หอมแดง +5บาท
-    <input type="checkbox" name="vegetable[]" value="jalapeno">พริกดอง +5บาท
-    <input type="checkbox" name="vegetable[]" value="carrot">แครอท +5บาท
-    </form>
-</body>-->
-
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="codeCSS/project.css">
-    <body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="codeCSS/project.css">
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+
+<body>
+    <header style="display: flex; justify-content: space-between; align-items: center;">
         <h1>คำสั่งซื้อ</h1>
-    <a href="page1.html">1</a>
-    <a href="page2.html">2</a>
-    <a href="page3.html">3</a>
-    <a href="page4.html">4</a>
-    <a href="page5.html">5</a>
-    <a href="sum_order.html">6</a><br>
-    <a href="page4.html">ต่อไป</a>
-    <h2>เลือกผัก</h2>
-    <h4>เลือกได้มากกว่า 1 อย่าง</h4>
-         <form action="/submit_form" method="post">
+        <div style="display: flex;">
+            <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
+                onclick="window.location.href='tap.html'"></i>
+            <i class="bi bi-basket" style="font-size: 30px;"></i>
+        </div>
+    </header><br>
+    <div class="button-next-1">
+        <div class="button-page" onclick="window.location.href='page1.html'">
+            <i class="bi bi-1-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page2.html'">
+            <i class="bi bi-2-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page3.html'">
+            <i class="bi bi-3-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page4.html'">
+            <i class="bi bi-4-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page5.html'">
+            <i class="bi bi-5-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='sum_order.html'">
+            <i class="bi bi-6-circle-fill"></i>
+        </div>
+    </div>
+    <br>
+    <div class="button-next-next">
+        <div class="button-next-page" onclick="window.location.href='page4.html'">ต่อไป
+        </div>
+        <h1 style="color: #FFC20D; margin-bottom: 5px;">เลือกขนมปัง</h1>
+        <h4 style="margin-top: 5px;color:#D9D9D9;">เลือกได้มากกว่า 1 อย่าง</h4>
+    </div>
+    <form action="/submit_form" method="post">
         <div class="button-container">
             <div class="button-slide">
-              
-        <button type="button" name="vegetable" value="lettuce"><img src="veg/lettuce.png"><br>ผักกาดแก้ว<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="tomato"><img src="veg/tomato.png"><br>มะเขือเทศ<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="cucumber"><img src="veg/cucumber.png"><br>แตงกวา<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="pickle"><img src="veg/pickle.png"><br>แตงกวาดอง<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="greenpepper"><img src="veg/greenpepper.png"><br>พริกเขียว<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="olive"><img src="veg/olive.png"><br>มะกอก<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="redonion"><img src="veg/redonion.png"><br>หอมแดง<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="jalapeno"><img src="veg/jalapeno.png"><br>พริกดอง<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        <button type="button" name="vegetable" value="carrot"><img src="veg/carrot.png"><br>แครอท<br>+5บาท</button>
-        <input type="hidden" name="vegetable-quantity[]" value="0">
-        
-        
-        </div>
+
+                <button type="button" name="vegetable" value="ผักกาดแก้ว"><img
+                        src="veg/lettuce.png"><br>ผักกาดแก้ว<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="มะเขือเทศ"><img
+                        src="veg/tomato.png"><br>มะเขือเทศ<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="แตงกวา"><img
+                        src="veg/cucumber.png"><br>แตงกวา<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="แตงกวาดอง"><img
+                        src="veg/pickle.png"><br>แตงกวาดอง<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="พริกหยวก"><img
+                        src="veg/greenpepper.png"><br>พริกหยวก<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="มะกอก"><img
+                        src="veg/olive.png"><br>มะกอก<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="หอมแดง"><img
+                        src="veg/redonion.png"><br>หอมแดง<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="พริกดอง"><img
+                        src="veg/jalapeno.png"><br>พริกดอง<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+                <button type="button" name="vegetable" value="แครอท"><img
+                        src="veg/carrot.png"><br>แครอท<br>+5บาท</button>
+                <input type="hidden" name="vegetable-quantity[]" value="0">
+            </div>
         </div>
         <br>
         <!--button type="button" id="add-button">Add to Cart</button>
         <button type="submit" id="submit-button">Submit</button-->
-      </form>
-      <br>
-      <button id="prev-button">Previous</button>
-      <button id="next-button">Next</button>
+    </form>
 
-      <script>
+    <div class="button-left">
+        <i id="prev-button" class="bi bi-chevron-left"></i>
+    </div>
+    <div class="button-right">
+        <i id="next-button" class="bi bi-chevron-right"></i>
+    </div>
+    <div id="selected-items">
+        <ul id="selected-list"></ul>
+    </div>
+    <script>
         const buttons = document.querySelectorAll('button[name="vegetable"]');
         const hiddenInputs = document.querySelectorAll('input[name="vegetable-quantity[]"]');
+        const selectedList = document.getElementById('selected-list');
         const prevButton = document.getElementById('prev-button');
         const nextButton = document.getElementById('next-button');
         const addButton = document.getElementById('add-button');
         const buttonSlide = document.querySelector('.button-slide');
-    
+
         let selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [],
             slidePosition = 0;
-    
+
+
         buttons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
                 button.classList.toggle('active');
-    
+
                 if (button.classList.contains('active')) {
                     selectedVegetable.push(button.value);
                 } else {
@@ -98,11 +113,10 @@
                         selectedVegetable.splice(indexToRemove, 1);
                     }
                 }
-    
+                updateSelectedItems();
                 localStorage.setItem('selectedVegetable', JSON.stringify(selectedVegetable));
             });
         });
-    
         // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
         selectedVegetable.forEach((vegetable) => {
             const button = document.querySelector(`button[name="vegetable"][value="${vegetable}"]`);
@@ -112,19 +126,50 @@
                 hiddenInputs[index].value = 1;
             }
         });
-    
-        prevButton.addEventListener('click', () => {
-            slidePosition += 1440; // ค่าความกว้างของปุ่ม
-            if (slidePosition > 0) slidePosition = -1440;
-            buttonSlide.style.left = `${slidePosition}px`;
+        function updateSelectedItems() {
+            const selectedVegetable = document.querySelectorAll('.active');
+            let selectedItemsText = '';
+            selectedVegetable.forEach((selectedVegetable, index) => {
+                const value = selectedVegetable.getAttribute('value');
+                selectedItemsText += `${value}`;
+            });
+            localStorage.setItem('selectedVegetable', JSON.stringify(Array.from(selectedVegetable).map(vegetable => vegetable.getAttribute('value'))));
+        }
+        // เพิ่มในส่วนที่จะเรียกใช้งานหน้าอื่น
+        window.addEventListener('load', () => {
+            const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
+            selectedVegetable.forEach(vegetable => {
+                const button = document.querySelector(`button[name="vegetable"][value="${vegetable}"]`);
+                if (button) {
+                    button.classList.add('active');
+                    const index = Array.from(buttons).indexOf(button);
+                    hiddenInputs[index].value = 1;
+                }
+            });
+            updateSelectedItems();
         });
         nextButton.addEventListener('click', () => {
-            slidePosition -= 1440; // ค่าความกว้างของปุ่ม
-            if (slidePosition < -320 * (buttonSlide.children.length - 1)) slidePosition = 0;
-            buttonSlide.style.left = `${slidePosition}px`;
-    
+            slidePosition -= 372 * 4; // ขยับไปที่ตำแหน่งของ 4 ปุ่มถัดไป
+            const numSlides = Math.ceil(buttonSlide.children.length / 4);
+            if (slidePosition <= -320 * (numSlides * 2 - 3)) {
+                slidePosition = -372 * (numSlides * 2 - 3); // กลับไปที่สไลด์สุดท้ายหากเลื่อนไปเกินจำนวนสไลด์ทั้งหมด
+                nextButton.style.display = 'none'; // ซ่อนปุ่มถัดไปเมื่ออยู่ที่สไลด์สุดท้าย
+            }
+            buttonSlide.style.left = `${slidePosition}px`; // กำหนดให้สไลด์เลื่อนไปที่ตำแหน่งใหม่
+            prevButton.style.display = 'inline'; // แสดงปุ่มย้อนกลับเมื่อสไลด์ถูกเลื่อน
         });
+
+        prevButton.addEventListener('click', () => {
+            slidePosition += 372 * 4; // เลื่อนไปที่ตำแหน่งของ 4 ปุ่มก่อนหน้า
+            if (slidePosition >= 0) {
+                slidePosition = 0; // กลับไปที่เริ่มต้นหากเลื่อนไปเกินจำนวนสไลด์ทั้งหมด
+                prevButton.style.display = 'none'; // ซ่อนปุ่มย้อนกลับเมื่ออยู่ที่สไลด์เริ่มต้น
+            }
+            buttonSlide.style.left = `${slidePosition}px`; // กำหนดให้สไลด์เลื่อนไปที่ตำแหน่งใหม่
+            nextButton.style.display = 'inline'; // แสดงปุ่มถัดไปเมื่อสไลด์ถูกเลื่อน
+        });
+
     </script>
-    </body>
-   
+</body>
+
 </html>

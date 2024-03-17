@@ -1,47 +1,97 @@
 <!DOCTYPE HTML>
-<html lang= “th”>
+<html lang="th">
+<head>
     <style>
-        td{
+        td {
             text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="codeCSS/project.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+</head>
 <body>
-    <h1>สรุปคำสั่งซื้อ</h1>
-        <a href="page1.html">1</a>
-        <a href="page2.html">2</a>
-        <a href="page3.html">3</a>
-        <a href="page4.html">4</a>
-        <a href="page5.html">5</a>
-        <a href="sum_order.html">6</a><br>
-    <table>
-        <tr>
-          <td>ขนมปัง</td>
-          <td>ขนมปังที่เลือก</td>
-          <td>รูป</td>
-        </tr>
-        <tr>
-          <td>เนื้อสัตว์</td>
-          <td>เนื้อสัตว์ที่เลือก</td>
-          <td>รูป</td>
-        </tr>
-        <tr>
-          <td>ผัก</td>
-          <td>ผักที่เลือก</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>ซอส</td>
-          <td>ซอสที่เลือก</td>
-          <td>รูป</td>
-        </tr>
-        <tr>
-          <td>ท็อปปิ้ง</td>
-          <td>ท็อปปิ้งที่เลือก</td>
-          <td>รูป</td>
-        </tr>
-      </table>
-      ราคา
-      <button type="submit" name="submit">เพิ่มลงในตะกร้า</button>
-</body>
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>คำสั่งซื้อ</h1>
+        <div style="display: flex;">
+            <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;" onclick="window.location.href='tap.html'"></i>
+            <i class="bi bi-basket" style="font-size: 30px;"></i>
+        </div>
+    </header><br>
+    <div class="button-next-1">
+        <div class="button-page" onclick="window.location.href='page1.html'">
+            <i class="bi bi-1-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page2.html'">
+            <i class="bi bi-2-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page3.html'">
+            <i class="bi bi-3-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page4.html'">
+            <i class="bi bi-4-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='page5.html'">
+            <i class="bi bi-5-circle-fill"></i>
+        </div>
+        <div class="button-page" onclick="window.location.href='sum_order.html'">
+            <i class="bi bi-6-circle-fill"></i>
+        </div>
+    </div>
+    <br>
+    <div id="selected-items">
+        <ul id="selected-list"></ul>
+    </div>
+    <div class="footer">
+        <h2>ราคา</h2>
+    </div>
+      
 
+    <script>
+      window.addEventListener('load', () => {
+        const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
+        const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
+        const selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [];
+        const selectedTopping = JSON.parse(localStorage.getItem('selectedTopping')) || [];
+        const selectedList = document.getElementById('selected-list');
+        let meatsText = '';
+        let vegetableText = '';
+        let sauceText = '';
+        let ToppingText = '';
+
+        selectedMeats.forEach((meat, index) => {
+            meatsText += `${meat}`;
+            if (index !== selectedMeats.length - 1) {
+                meatsText += ', ';
+            }
+        });
+
+        selectedVegetable.forEach((vegetable, index) => {
+            vegetableText += `${vegetable}`;
+            if (index !== selectedVegetable.length - 1) {
+                vegetableText += ', ';
+            }
+        });
+
+        selectedSauce.forEach((sauce, index) => {
+            sauceText += `${sauce}`;
+            if (index !== selectedSauce.length - 1) {
+                sauceText += ', ';
+            }
+        });
+
+        selectedTopping.forEach((topping, index) => {
+            ToppingText += `${topping}`;
+            if (index !== selectedTopping.length - 1) {
+                ToppingText += ', ';
+            }
+        });
+
+        selectedList.innerHTML = `ขนมปังที่เลือก: <br><br><br><br> เนื้อสัตว์ที่เลือก: ${meatsText}<br><br><br><br>
+        ผักที่เลือก: ${vegetableText}<br><br><br><br>ซอสที่ที่เลือก: ${sauceText}<br><br><br><br>ท็อปปิ้งที่ที่เลือก: ${ToppingText}<br>`;
+
+    });
+  </script>
+  
+</body>
 </html>

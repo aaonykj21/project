@@ -1,89 +1,138 @@
-<!-- <!DOCTYPE HTML>
-<html lang= “th”>
-<body>
-    <h1>คำสั่งซื้อ</h1>
-    <a href="page1.html">1</a>
-    <a href="page2.html">2</a>
-    <a href="page3.html">3</a>
-    <a href="page4.html">4</a>
-    <a href="page5.html">5</a>
-    <a href="cart.html">6</a>
-    <a href="payment.html">7</a>
-    <form class="bread" action="" name=”SelectBread”>
-    <a href="page2.html">ต่อไป</a>
-    <h2>เลือกขนมปัง</h2>
-    <h4>เลือกได้ 1 อย่าง</h4>
-    <label for="type"></label>
-            <button type="radio" name="type" value="wheat" required> วีท +20บาท </button>
-            <button type="radio" name="type" value="honeyoat"> ฮันนี่โอ๊ต +30บาท </button>
-            <button type="radio" name="type" value="sesame"> เซซามี +30บาท </button>
-            <button type="radio" name="type" value="pamesanoregano"> พาร์เมซาน ออริกาโน +30บาท </button>
-    </form>
-</body>-->
-
 <!DOCTYPE html>
 <html>
-  <link rel="stylesheet" href="codeCSS/project.css">
-    <body>
-        <h1>คำสั่งซื้อ</h1>
-    <a href="page1.html">1</a>
-    <a href="page2.html">2</a>
-    <a href="page3.html">3</a>
-    <a href="page4.html">4</a>
-    <a href="page5.html">5</a>
-    <a href="payment.html">6</a><br>
-    <a href="page2.html">ต่อไป</a>
-    <h2>เลือกขนมปัง</h2>
-    <h4>เลือกได้ 1 อย่าง</h4>
-         <form action="/submit_form" method="post">
-        <div class="button-container">
-            <div class="button-slide">
-        <button type="button" name="bread" value="wheat"><img src="bread/wheat.png" width="150" height="100"><br>วีท<br>+20บาท</button>
-        <input type="hidden" name="bread[]" value="0">
-        <button type="button" name="bread" value="honeyoat"><img src="bread/honeyoat.png" width="150" height="100"><br>ฮันนี่ โอ๊ต<br>+30บาท</button>
-        <input type="hidden" name="bread[]" value="0">
-        <button type="button" name="bread" value="sesame"><img src="bread/sesame.png" width="150" height="100"><br>เซซามี<br>+30บาท</button>
-        <input type="hidden" name="bread[]" value="0">
-        <button type="button" name="bread" value="pamesanoregano"><img src="bread/pamesan.png" width="150" height="100"><br>พาร์เมซาน ออริกาโน<br>+30บาท</button>
-        <input type="hidden" name="bread[]" value="0">
-        </div>
-        </div>
-        <br>
-        <button type="button" id="add-button">Add to Cart</button>
-        <button type="submit">Submit</button>
-      </form>
-  
-      <script>
-        const buttons = document.querySelectorAll('button[name="bread"]');
-        const hiddenInputs = document.querySelectorAll('input[name="bread[]"]');
-        const addButton = document.getElementById('add-button');
-      
-        buttons.forEach((button, index) => {
-          button.addEventListener('click', () => {
-            if (button.classList.contains('active')) {
-              button.classList.remove('active');
-              hiddenInputs[index].value = 0;
-            } else {
-              buttons.forEach((btn, idx) => {
-                if (idx !== index) {
-                  btn.classList.remove('active');
-                  hiddenInputs[idx].value = 0;
-                }
-              });
-              button.classList.add('active');
-              hiddenInputs[index].value = 1;
-            }
-          });
-        });
 
-        addButton.addEventListener('click', () => {
-          buttons.forEach((button) => {
-            if (button.classList.contains('active')) {
-              button.form.submit();
-            }
-          });
-        });
-      </script>
-    </body>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="codeCSS/project.css">
+</head>
+
+<body>
+  <header style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>คำสั่งซื้อ</h1>
+    <div style="display: flex;">
+      <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
+        onclick="window.location.href='tap.html'"></i>
+      <i class="bi bi-basket" style="font-size: 30px;"></i>
+    </div>
+  </header><br>
+  <div class="button-next-1">
+    <div class="button-page" onclick="window.location.href='page1.html'">
+      <i class="bi bi-1-circle-fill"></i>
+    </div>
+    <div class="button-page" onclick="window.location.href='page2.html'">
+      <i class="bi bi-2-circle-fill"></i>
+    </div>
+    <div class="button-page" onclick="window.location.href='page3.html'">
+      <i class="bi bi-3-circle-fill"></i>
+    </div>
+    <div class="button-page" onclick="window.location.href='page4.html'">
+      <i class="bi bi-4-circle-fill"></i>
+    </div>
+    <div class="button-page" onclick="window.location.href='page5.html'">
+      <i class="bi bi-5-circle-fill"></i>
+    </div>
+    <div class="button-page" onclick="window.location.href='sum_order.html'">
+      <i class="bi bi-6-circle-fill"></i>
+    </div>
+  </div>
+  <br>
+  <div class="button-next-next">
+    <div class="button-next-page" onclick="window.location.href='page2.html'">ต่อไป
+    </div>
+    <h1 style="color: #FFC20D; margin-bottom: 5px;">เลือกขนมปัง</h1>
+    <h4 style="margin-top: 5px;color:#D9D9D9;">เลือกได้ 1 อย่าง</h4>
+  </div>
+  <form action="/submit_form" method="post">
+    <div class="button-container">
+      <div class="button-slide">
+        <button type="button" name="bread" value="wheat"><img src="bread/wheat.png" width="150"
+            height="100"><br>วีท<br>+20บาท</button>
+        <input type="hidden" name="bread[]" value="0">
+        <button type="button" name="bread" value="honeyoat"><img src="bread/honeyoat.png" width="150"
+            height="100"><br>ฮันนี่ โอ๊ต<br>+30บาท</button>
+        <input type="hidden" name="bread[]" value="0">
+        <button type="button" name="bread" value="sesame"><img src="bread/sesame.png" width="150"
+            height="100"><br>เซซามี<br>+30บาท</button>
+        <input type="hidden" name="bread[]" value="0">
+        <button type="button" name="bread" value="pamesanoregano"><img src="bread/pamesan.png" width="150"
+            height="100"><br>พาร์เมซาน ออริกาโน<br>+30บาท</button>
+        <input type="hidden" name="bread[]" value="0">
+      </div>
+    </div>
+    <input type="hidden" id="selected-bread" name="selectedBread" value="">
+  </form>
+
+  <div id="selected-bread-summary"></div>
+
+  <script>
+    const buttons = document.querySelectorAll('button[name="bread"]');
+    const hiddenInput = document.getElementById('selected-bread');
    
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selectedBread = button.value;
+        hiddenInput.value = selectedBread; // ตั้งค่าข้อมูลในฟิลด์ที่ซ่อนไว้
+        storeSelectedBread(selectedBread); // เก็บข้อมูลที่ผู้ใช้เลือกไว้
+        displaySelectedBread(); // แสดงข้อมูลที่ผู้ใช้เลือกไว้
+
+        // เพิ่มคลาส 'active' เข้าไปในปุ่มที่ถูกคลิก
+        buttons.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+        button.classList.add('active');
+      });
+      updateSelectedItems();
+    });
+
+    // เก็บข้อมูลที่ผู้ใช้เลือกไว้
+    function storeSelectedBread(selectedBread) {
+      updateSelectedItems();
+      localStorage.setItem('selectedBread', selectedBread);
+    }
+
+    // แสดงข้อมูลที่ผู้ใช้เลือกไว้
+    function displaySelectedBread() {
+      const selectedBread = localStorage.getItem('selectedBread');
+      if (selectedBread) {
+        const summaryElement = document.getElementById('selected-bread-summary');
+        summaryElement.innerHTML = `<p>ขนมปังที่เลือก: ${selectedBread}</p>`;
+      }
+    }
+    selectedBread.forEach((bread) => {
+      const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
+      if (button) {
+        button.classList.add('active');
+        const index = Array.from(buttons).indexOf(button);
+        hiddenInputs[index].value = 1;
+      }
+    });
+
+    function updateSelectedItems() {
+      const selectedBread = document.querySelectorAll('.active');
+      let selectedItemsText = '';
+      selectedBread.forEach((selectedBread, index) => {
+        const value = selectedBread.getAttribute('value');
+        selectedItemsText += `${value}`;
+      });
+      localStorage.setItem('selectedBread', JSON.stringify(Array.from(selectedBread).map(bread => bread.getAttribute('value'))));
+    }
+
+
+    // เพิ่มในส่วนที่จะเรียกใช้งานหน้าอื่น
+    window.addEventListener('load', () => {
+      const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
+      selectedBread.forEach(bread => {
+        const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
+        if (button) {
+          button.classList.add('active');
+          const index = Array.from(buttons).indexOf(button);
+          hiddenInputs[index].value = 1;
+        }
+      });
+      updateSelectedItems();
+    });
+  </script>
+</body>
+
 </html>
