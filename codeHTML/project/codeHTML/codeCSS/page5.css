@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow: hidden;
+    font-family: 'Chonburi';font-size: 20px;
+    /* ไม่ให้เลื่อนหน้าจอ */
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #028940;
+    color: #fff;
+    padding: 2px 30px;
+  }
+  
+  button {
+    margin-left: 10px;
+    margin-right: 10px; /* ระยะห่างของปุ่ม */
+    width: 360px; /* กำหนดความกว้างของปุ่ม */
+    background-color: #F6F6F6;
+    border: none;
+    border-radius: 40px;
+    
+  }
+  .button-page{
+    position: relative;
+    border: none;
+    font-size: 50px;
+    margin-right: 50px;
+    top: 2%;
+  }
+  
+  .button-next-1{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #028940;
+  }
+  .button-next-next{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    padding: 2px 40px;
+    top: 10%;
+  }
+  .button-next-page {
+    border: none;
+    position: fixed; /* หรือ position: absolute; */
+    right: 20px; /* หรือค่าที่ต้องการ */
+    width: 9%;
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFC20D;
+    border-radius: 40px;
+    font-size: 30px;
+  }
+  .button-left{
+    border: none;
+    position: absolute;
+    top: 67%; /* จัดให้อยู่ตรงกลางตามแนวตั้ง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+  }
+  .button-right{
+    border: none;
+    position: absolute;
+    top: 67%; /* จัดให้อยู่ตรงกลางตามแนวตั้ง */
+    right: 0; /* จัดให้อยู่ทางขวา */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+  }
+  .button-container {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  
+  }
+  .button-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(150px * 6); /* คูณด้วยจำนวนของปุ่ม */
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: left 0.5s;
+  }
+  .button-slide button {
+    font-size: 20px; /* เปลี่ยนขนาดตัวหนังสือเป็น 16px */
+  }
+  .button-slide.slide-left {
+    left: -100%;
+  }
+  .button-slide.slide-right {
+    left: 100%;
+  }
+  .active {
+    background-color: #028940;
+    color: white;
+    display: block;
+  }
+  button:not(.active):hover {
+    background-color: #BEBEBE;
+    color: #fff;
+  }
+  img {
+    width: 340px;
+    height: 320px;
+    /* ทำให้สัดส่วนของรูปอัตโนมัติ */
+  }
+  
+  .page {
+    display: none;
+  }
+  .button-slide button.active {
+    background-color: #028940; /* เปลี่ยนเป็นสีเขียวเมื่อถูกคลิก */
+    color: white; /* เปลี่ยนสีตัวอักษรเป็นขาว */
+  }
+  .footer {
+    padding: 5px 30px;
+    background-image: linear-gradient(to right, #028940 70%, #FFC20D 30%);
+    color: #fff;
+  }
