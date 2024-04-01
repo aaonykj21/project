@@ -7,12 +7,12 @@
 </head>
 
 <body>
-  <header style="display: flex; justify-content: space-between; align-items: center;">
+  <header>
     <h1>คำสั่งซื้อ</h1>
     <div style="display: flex;">
       <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
         onclick="window.location.href='tap.html'"></i>
-      <i class="bi bi-basket" style="font-size: 30px;"></i>
+      <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.html'"></i>
     </div>
   </header><br>
   <div class="button-next-1">
@@ -59,80 +59,74 @@
         <input type="hidden" name="bread[]" value="0">
       </div>
     </div>
-    <input type="hidden" id="selected-bread" name="selectedBread" value="">
   </form>
 
-  <div id="selected-bread-summary"></div>
+  <div id="selected-items">
+    <ul id="selected-list"></ul>
+</div>
 
-  <script>
-    const buttons = document.querySelectorAll('button[name="bread"]');
-    const hiddenInput = document.getElementById('selected-bread');
-   
+<script>
+    const buttons = document.querySelectorAll('button[name="ิbread"]');
+    const hiddenInputs = document.querySelectorAll('input[name="bread-quantity[]"]');
+    const selectedList = document.getElementById('selected-list');
+    const addButton = document.getElementById('add-button');
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const selectedBread = button.value;
-        hiddenInput.value = selectedBread; // ตั้งค่าข้อมูลในฟิลด์ที่ซ่อนไว้
-        storeSelectedBread(selectedBread); // เก็บข้อมูลที่ผู้ใช้เลือกไว้
-        displaySelectedBread(); // แสดงข้อมูลที่ผู้ใช้เลือกไว้
+    let selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [],
+        slidePosition = 0;
+    localStorage.setItem('selectedBread', JSON.stringify(selectedBread));
 
-        // เพิ่มคลาส 'active' เข้าไปในปุ่มที่ถูกคลิก
-        buttons.forEach((btn) => {
-          btn.classList.remove('active');
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
+            button.classList.toggle('active');
+
+            if (button.classList.contains('active')) {
+              selectedBread.push(button.value);
+            } else {
+                const indexToRemove = selectedBread.indexOf(button.value);
+                if (indexToRemove !== -1) {
+                   selectedBread.splice(indexToRemove, 1);
+                }
+            }
+            updateSelectedItems();
+            localStorage.setItem('selectedBread', JSON.stringify(selectedBread));
         });
-        button.classList.add('active');
-      });
-      updateSelectedItems();
     });
 
-    // เก็บข้อมูลที่ผู้ใช้เลือกไว้
-    function storeSelectedBread(selectedBread) {
-      updateSelectedItems();
-      localStorage.setItem('selectedBread', selectedBread);
-    }
-
-    // แสดงข้อมูลที่ผู้ใช้เลือกไว้
-    function displaySelectedBread() {
-      const selectedBread = localStorage.getItem('selectedBread');
-      if (selectedBread) {
-        const summaryElement = document.getElementById('selected-bread-summary');
-        summaryElement.innerHTML = `<p>ขนมปังที่เลือก: ${selectedBread}</p>`;
-      }
-    }
+    // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
     selectedBread.forEach((bread) => {
-      const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
-      if (button) {
-        button.classList.add('active');
-        const index = Array.from(buttons).indexOf(button);
-        hiddenInputs[index].value = 1;
-      }
+        const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
+        if (button) {
+            button.classList.add('active');
+            const index = Array.from(buttons).indexOf(button);
+            hiddenInputs[index].value = 1;
+        }
     });
-
     function updateSelectedItems() {
-      const selectedBread = document.querySelectorAll('.active');
-      let selectedItemsText = '';
-      selectedBread.forEach((selectedBread, index) => {
-        const value = selectedBread.getAttribute('value');
-        selectedItemsText += `${value}`;
-      });
-      localStorage.setItem('selectedBread', JSON.stringify(Array.from(selectedBread).map(bread => bread.getAttribute('value'))));
+        const selectedBread = document.querySelectorAll('.active');
+        let selectedItemsText = '';
+        selectedBread.forEach((selectedBread, index) => {
+            const value = selectedBread.getAttribute('value');
+            selectedItemsText += `${value}`;
+        });
+        localStorage.setItem('selectedBread', JSON.stringify(Array.from(selectedBread).map(bread => bread.getAttribute('value'))));
     }
 
 
     // เพิ่มในส่วนที่จะเรียกใช้งานหน้าอื่น
     window.addEventListener('load', () => {
-      const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
-      selectedBread.forEach(bread => {
-        const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
-        if (button) {
-          button.classList.add('active');
-          const index = Array.from(buttons).indexOf(button);
-          hiddenInputs[index].value = 1;
-        }
-      });
-      updateSelectedItems();
+        const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
+        selectedBread.forEach(bread => {
+            const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
+            if (button) {
+                button.classList.add('active');
+                const index = Array.from(buttons).indexOf(button);
+                hiddenInputs[index].value = 1;
+            }
+        });
+        updateSelectedItems();
     });
-  </script>
+</script>
 </body>
 
 </html>

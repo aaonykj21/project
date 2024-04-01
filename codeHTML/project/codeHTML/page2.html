@@ -5,12 +5,12 @@
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
 
 <body>
-    <header style="display: flex; justify-content: space-between; align-items: center;">
+    <header>
         <h1>คำสั่งซื้อ</h1>
         <div style="display: flex;">
             <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
                 onclick="window.location.href='tap.html'"></i>
-            <i class="bi bi-basket" style="font-size: 30px;"></i>
+            <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.html'"></i>
         </div>
     </header><br>
     <div class="button-next-1">
@@ -108,7 +108,6 @@
                 localStorage.setItem('selectedMeats', JSON.stringify(selectedMeats));
             });
         });
-
         // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
         selectedMeats.forEach((meat) => {
             const button = document.querySelector(`button[name="meat"][value="${meat}"]`);
@@ -127,8 +126,6 @@
             });
             localStorage.setItem('selectedMeats', JSON.stringify(Array.from(selectedMeats).map(meat => meat.getAttribute('value'))));
         }
-
-
         // เพิ่มในส่วนที่จะเรียกใช้งานหน้าอื่น
         window.addEventListener('load', () => {
             const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
@@ -162,10 +159,17 @@
             buttonSlide.style.left = `${slidePosition}px`; // กำหนดให้สไลด์เลื่อนไปที่ตำแหน่งใหม่
             nextButton.style.display = 'inline'; // แสดงปุ่มถัดไปเมื่อสไลด์ถูกเลื่อน
         });
-
-
+        function goToPage(page) {
+            const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
+            if (selectedMeats.length === 0) {
+                localStorage.clear(); // ลบทุกอย่างที่เก็บใน localStorage
+                const buttons = document.querySelectorAll('button[name="meat"]');
+                buttons.forEach(button => {
+                    button.classList.remove('active'); // ลบคลาส 'active' ออกจากปุ่มทั้งหมด
+                });
+            }
+            window.location.href = page;
+        }
     </script>
-
 </body>
-
 </html>
