@@ -11,21 +11,24 @@
               <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;" onclick="window.location.href='tap.html'"></i>
               <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.html'"></i>
             </div>
+            <div class="clockTime">
+              <div id="clock"></div>
+          </div>
           </header><br>
         <div class="button-next-1">
-            <div class="button-page" onclick="window.location.href='page1.html'">
+            <div class="button-page" onclick="window.location.href='page1.php'">
               <i class="bi bi-1-circle-fill"></i>
             </div>
-            <div class="button-page" onclick="window.location.href='page2.html'">
+            <div class="button-page" onclick="window.location.href='page2.php'">
               <i class="bi bi-2-circle-fill"></i>
             </div>
-            <div class="button-page" onclick="window.location.href='page3.html'">
+            <div class="button-page" onclick="window.location.href='page3.php'">
               <i class="bi bi-3-circle-fill"></i>
             </div>
-            <div class="button-page" onclick="window.location.href='page4.html'">
+            <div class="button-page" onclick="window.location.href='page4.php'">
               <i class="bi bi-4-circle-fill"></i>
             </div>
-            <div class="button-page" onclick="window.location.href='page5.html'">
+            <div class="button-page" onclick="window.location.href='page5.php'">
               <i class="bi bi-5-circle-fill"></i>
             </div>
             <div class="button-page" onclick="window.location.href='sum_order.html'">
@@ -36,19 +39,19 @@
         <div class="button-next-next">
             <div class="button-next-page" onclick="window.location.href='sum_order.html'">ต่อไป
             </div>
-            <h1 style="color: #FFC20D; margin-bottom: 5px;">เลือกขนมปัง</h1>
-            <h4 style="margin-top: 5px;color:#D9D9D9;">เลือกได้มากกว่า 1 อย่าง</h4>
+            <h1 style="color: #FFC20D; margin-bottom: 5px;">เลือกท็อปปื้ง</h1>
+            <h4 style="margin-top: 5px;color:#D9D9D9;">เลือกได้ 2 อย่าง</h4>
           </div>
          <form action="/submit_form" method="post">
         <div class="button-container">
             <div class="button-slide">
               <button type="button" name="topping" value="ไม่เพิ่ม"><img src="img/sauce/icon1.png"><br><br>ไม่เลือก</button>
         <input type="hidden" name="topping-quantity[]" value="0">
-        <button type="button" name="topping" value="มอสซาเรลาชีส"><img src="img/topping/mozcheese.jpg" width="150" height="100"><br>มอสซาเรลาชีส<br>+20บาท</button>
+        <button type="button" name="topping" value="มอสซาเรลาชีส"><img src="img/topping/mozcheese.png" width="150" height="100"><br>มอสซาเรลาชีส<br>+20บาท</button>
         <input type="hidden" name="topping-quantity[]" value="1">
-        <button type="button" name="topping" value="ชีสแผ่น"><img src="img/topping/cheese.jpg" width="150" height="100"><br>ชีสแผ่น<br>+20บาท</button>
+        <button type="button" name="topping" value="ชีสแผ่น"><img src="img/topping/cheese.png" width="150" height="100"><br>ชีสแผ่น<br>+20บาท</button>
         <input type="hidden" name="topping-quantity[]" value="1">
-        <button type="button" name="topping" value="ไข่ดาว"><img src="img/topping/egg.jpg" width="150" height="100"><br>ไข่ดาว<br>+10บาท</button>
+        <button type="button" name="topping" value="ไข่ดาว"><img src="img/topping/egg.png" width="150" height="100"><br>ไข่ดาว<br>+10บาท</button>
         <input type="hidden" name="topping-quantity[]" value="1">
         </div>
         </div>
@@ -65,18 +68,20 @@
     
         buttons.forEach((button, index) => {
             button.addEventListener('click', () => {
-                hiddenInputs[index].value = parseInt(hiddenInputs[index].value) + 1;
-                button.classList.toggle('active');
-    
+                const numSelected = selectedTopping.length;
                 if (button.classList.contains('active')) {
-                    selectedTopping.push(button.value);
-                } else {
+                    hiddenInputs[index].value = 0;
+                    button.classList.remove('active');
                     const indexToRemove = selectedTopping.indexOf(button.value);
                     if (indexToRemove !== -1) {
-                        selectedTopping.splice(indexToRemove, 1);
+                      selectedTopping.splice(indexToRemove, 1);
                     }
+                } else if (numSelected < 2) {
+                    hiddenInputs[index].value = 1;
+                    button.classList.add('active');
+                    selectedTopping.push(button.value);
                 }
-    
+                updateSelectedItems();
                 localStorage.setItem('selectedTopping', JSON.stringify(selectedTopping));
             });
         });
@@ -116,6 +121,22 @@
                 hiddenInputs[index].value = 1;
             }
         });
+        function updateClock() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  hours = hours < 10 ? '0' + hours : hours;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+
+  var timeString = hours + ':' + minutes + ':' + seconds;
+  document.getElementById('clock').innerHTML = timeString;
+}
+
+setInterval(updateClock, 1000); // อัพเดทเวลาทุกๆ 1 วินาที
+updateClock(); // เรียกใช้ฟังก์ชันเพื่อแสดงเวลาครั้งแรกทันทีเมื่อหน้าเว็บโหลด
     </script>
     </body>
    

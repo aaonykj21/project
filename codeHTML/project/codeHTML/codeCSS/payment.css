@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow: hidden;
+    font-family: 'Chonburi';font-size: 20px;
+    /* ไม่ให้เลื่อนหน้าจอ */
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #028940;
+    color: #fff;
+    padding: 2px 30px;
+  }
+  summary{
+    width: 25vw;
+    height: 15vw;
+    background-color: #FFFFF0;
+    border: solid#D3D3D3;
+    border-radius: 30px;
+    margin: 120px 70%;
+  }
+  .summary-font{
+    padding: 1px 30px;
+  }
+  .button_summary{
+    background-color: #028940;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    width: 45%;
+    height: 50px;
+    margin-left: 55%;
+    overflow: hidden;
+  }
+  .button_again{
+    background-color: #FFC20D;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    width: 45%;
+    height: 50px;
+    overflow: hidden;
+    margin-top: -16%;
+  }
+  .button-font{
+    align-items: center;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    padding: 1px 20px;
+    top: -20%;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* สีดำโปร่งใส */
+    z-index: 9999; /* ให้สี่เหลี่ยมอยู่หน้าสุด */
+  }
+  

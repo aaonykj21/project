@@ -15,6 +15,15 @@ header {
   color: #fff;
   padding: 2px 30px;
 }
+#clock {
+  font-size: 0.7em;
+}
+.clockTime{
+   position: fixed; /* กำหนดให้นาฬิกาติดแน่นกับขอบของหน้าจอ */
+top: 13px; /* จัดให้อยู่ที่ด้านบนสุด */
+right: 30px; /* ระยะห่างจากขอบขวาของหน้าจอ */
+color: #F6F6F6;
+}
 summary{
   width: 25vw;
   height: 15vw;
@@ -55,4 +64,60 @@ summary{
   overflow: hidden;
   padding: 1px 20px;
   top: -20%;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-content {
+  background-color: white;
+  padding: 300px 600px;
+  border-radius: 0 0 5px 5px; /* โค้งด้านบนเท่านั้น */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column; /* จัดให้เนื้อหาใน overlay เรียงตามแนวดิ่ง */
+  left: 20px; /* จัดให้อยู่ด้านซ้าย */
+}
+.overlay-content::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -10px; /* ตำแหน่งของแถบสีเขียวข้างบน */
+  left: 0;
+  width: 100%;
+  height: 80px; /* ความสูงของแถบสีเขียว */
+  background-color: green;
+  border-radius: 5px 5px 0 0; /* โค้งด้านบนเท่านั้น */
+}
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 50px;
+}
+
+.close-button:hover {
+  cursor: pointer;
+}
+#overlayContent {
+  position: fixed;
+  top: 20px; /* ระยะห่างของข้อความ Payment จากด้านบน */
+  left: 20px; /* ระยะห่างของข้อความ Payment จากด้านซ้าย */
+  background-color: white;
+  padding: 50px 70px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: none;
 }

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 
 <head>
-  <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="codeCSS/page1.css">
 </head>
@@ -13,32 +12,32 @@
     <div style="display: flex;">
       <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
         onclick="window.location.href='tap.html'"></i>
-      <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.html'"></i>
+      <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.php'"></i>
     </div>
   </header><br>
   <div class="button-next-1">
-    <div class="button-page" onclick="window.location.href='page1.html'">
+    <div class="button-page" onclick="window.location.href='page1.php'">
       <i class="bi bi-1-circle-fill"></i>
     </div>
-    <div class="button-page" onclick="window.location.href='page2.html'">
+    <div class="button-page" onclick="window.location.href='page2.php'">
       <i class="bi bi-2-circle-fill"></i>
     </div>
-    <div class="button-page" onclick="window.location.href='page3.html'">
+    <div class="button-page" onclick="window.location.href='page3.php'">
       <i class="bi bi-3-circle-fill"></i>
     </div>
-    <div class="button-page" onclick="window.location.href='page4.html'">
+    <div class="button-page" onclick="window.location.href='page4.php'">
       <i class="bi bi-4-circle-fill"></i>
     </div>
-    <div class="button-page" onclick="window.location.href='page5.html'">
+    <div class="button-page" onclick="window.location.href='page5.php'">
       <i class="bi bi-5-circle-fill"></i>
     </div>
-    <div class="button-page" onclick="window.location.href='sum_order.html'">
+    <div class="button-page" onclick="window.location.href='sum_order.php'">
       <i class="bi bi-6-circle-fill"></i>
     </div>
   </div>
   <br>
   <div class="button-next-next">
-    <div class="button-next-page" onclick="window.location.href='page2.html'">ต่อไป
+    <div class="button-next-page" onclick="window.location.href='page2.php'">ต่อไป
     </div>
     <h1 style="color: #FFC20D; margin-bottom: 5px;">เลือกขนมปัง</h1>
     <h4 style="margin-top: 5px;color:#D9D9D9;">เลือกได้ 1 อย่าง</h4>
