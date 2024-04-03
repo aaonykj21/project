@@ -63,8 +63,6 @@
         document.body.removeChild(overlay);
       });
     });
-  
-
     function updateClock() {
   var now = new Date();
   var hours = now.getHours();

@@ -36,7 +36,7 @@
         <div class="button-page" onclick="window.location.href='page5.php'">
             <i class="bi bi-5-circle-fill"></i>
         </div>
-        <div class="button-page" onclick="window.location.href='sum_order.html'">
+        <div class="button-page" onclick="window.location.href='sum_order.php'">
             <i class="bi bi-6-circle-fill"></i>
         </div>
     </div>
@@ -159,17 +159,6 @@
             buttonSlide.style.left = `${slidePosition}px`; // กำหนดให้สไลด์เลื่อนไปที่ตำแหน่งใหม่
             nextButton.style.display = 'inline'; // แสดงปุ่มถัดไปเมื่อสไลด์ถูกเลื่อน
         });
-        function goToPage(page) {
-            const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
-            if (selectedMeats.length === 0) {
-                localStorage.clear(); // ลบทุกอย่างที่เก็บใน localStorage
-                const buttons = document.querySelectorAll('button[name="meat"]');
-                buttons.forEach(button => {
-                    button.classList.remove('active'); // ลบคลาส 'active' ออกจากปุ่มทั้งหมด
-                });
-            }
-            window.location.href = page;
-        }
         function updateClock() {
             var now = new Date();
             var hours = now.getHours();

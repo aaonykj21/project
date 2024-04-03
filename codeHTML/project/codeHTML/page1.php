@@ -81,8 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (indexToRemove !== -1) {
                   selectedBread.splice(indexToRemove, 1);
                 }
-            } else if (numSelected < 2) {
-                hiddenInputs[index].value = 1;
+            } else if (numSelected < 1) {
+                hiddenInputs[index].value = 0;
                 button.classList.add('active');
                 selectedBread.push(button.value);
             }
@@ -96,13 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         selectedBread.forEach((selectedBread, index) => {
             const value = selectedBread.getAttribute('value');
             selectedItemsText += `${value}`;
-
         });
         localStorage.setItem('selectedBread', JSON.stringify(Array.from(selectedBread).map(bread => bread.getAttribute('value'))));
     }
-
-
-
     // เพิ่มในส่วนที่จะเรียกใช้งานหน้าอื่น
     window.addEventListener('load', () => {
         const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
@@ -115,15 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         });
         updateSelectedItems();
-    });
-    // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
-    selectedBread.forEach((bread) => {
-        const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
-        if (button) {
-            button.classList.add('active');
-            const index = Array.from(buttons).indexOf(button);
-            hiddenInputs[index].value = 1;
-        }
     });
     function updateClock() {
 var now = new Date();

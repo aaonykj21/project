@@ -1,8 +1,3 @@
-<?php
-if(isset($_POST['orderData'])){
-    $orderData = json_decode($_POST['orderData'])
-}
-?>
 
 <!DOCTYPE HTML>
 <html lang="th">
@@ -131,16 +126,42 @@ if(isset($_POST['orderData'])){
         });
 
         function addToCart() {
-            // ดำเนินการเพิ่มสินค้าลงในตะกร้า ตามที่ต้องการ
-            // ล้างสถานะการเลือกใน localStorage
-            localStorage.removeItem('selectedBread');
-            localStorage.removeItem('selectedMeats');
-            localStorage.removeItem('selectedVegetable');
-            localStorage.removeItem('selectedSauce');
-            localStorage.removeItem('selectedTopping');
-            // นำผู้ใช้ไปยังหน้าตะกร้าหลังจากเพิ่มสินค้าเรียบร้อย
-            window.location.href = 'cart.php';
+    const order = {
+        breads: JSON.parse(localStorage.getItem('selectedBread')) || [],
+        meats: JSON.parse(localStorage.getItem('selectedMeats')) || [],
+        vegetables: JSON.parse(localStorage.getItem('selectedVegetable')) || [],
+        sauces: JSON.parse(localStorage.getItem('selectedSauce')) || [],
+        toppings: JSON.parse(localStorage.getItem('selectedTopping')) || []
+    };
+
+    // ส่งข้อมูลไปยัง PHP ด้วย AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'connection.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // การส่งข้อมูลสำเร็จ
+                console.log('Order saved successfully');
+                // ลบข้อมูลใน localStorage หลังจากส่งข้อมูลเรียบร้อย
+                localStorage.removeItem('selectedBread');
+                localStorage.removeItem('selectedMeats');
+                localStorage.removeItem('selectedVegetable');
+                localStorage.removeItem('selectedSauce');
+                localStorage.removeItem('selectedTopping');
+            } else {
+                // การส่งข้อมูลไม่สำเร็จ
+                console.error('Failed to save order');
+            }
         }
+    };
+    xhr.send('breads=' + order.breads.join(',') +
+             '&meats=' + order.meats.join(',') +
+             '&vegetables=' + order.vegetables.join(',') +
+             '&sauces=' + order.sauces.join(',') +
+             '&toppings=' + order.toppings.join(','));
+}
+
     </script>
 
 </body>
