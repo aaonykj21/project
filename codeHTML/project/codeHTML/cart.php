@@ -24,7 +24,7 @@
           </p>
         </div>
       </div>
-      <div class="button_again" onclick="window.location.href='page1.html'">
+      <div class="button_again" onclick="window.location.href='page1.php'">
         <div class="button-font">
           <p>สั่งออเดอร์</p>
         </div>
