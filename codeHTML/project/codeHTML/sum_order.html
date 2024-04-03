@@ -103,7 +103,7 @@
                 }
             });
 
-            selectedList.innerHTML = `ขนมปังที่เลือก: <br><br><br><br> เนื้อสัตว์ที่เลือก: ${meatsText}<br><br><br><br>
+            selectedList.innerHTML = `ขนมปังที่เลือก: ${breadText}<br><br><br><br> เนื้อสัตว์ที่เลือก: ${meatsText}<br><br><br><br>
         ผักที่เลือก: ${vegetableText}<br><br><br><br>ซอสที่ที่เลือก: ${sauceText}<br><br><br><br>ท็อปปิ้งที่ที่เลือก: ${ToppingText}<br>`;
 
             function updateClock() {
@@ -127,6 +127,7 @@
         function addToCart() {
             // ดำเนินการเพิ่มสินค้าลงในตะกร้า ตามที่ต้องการ
             // ล้างสถานะการเลือกใน localStorage
+            localStorage.removeItem('selectedBread');
             localStorage.removeItem('selectedMeats');
             localStorage.removeItem('selectedVegetable');
             localStorage.removeItem('selectedSauce');
