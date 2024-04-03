@@ -1,12 +1,27 @@
 <!DOCTYPE HTML>
 <html lang="'th">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="codeCSS/payment.css">
+  </head>
     <body>
-        <h1>ชำระเงิน</h1>
-        <form class="payment" name=”SelectPayment”>
-            <label for="type"></label>
-                    <input type="radio" name="type" value="qr" required>คิวอาร์โค้ด
-                    <input type="radio" name="type" value="money"> เงินสด
-            </form>
+      <header>
+        <h1>ตะกร้า</h1>
+      </header>
+      <summary>
+        <div class="summary-font">
+          <h3>สรุปออเดอร์</h3>
+          <p>ยอดรวม</p>
+          <div class="button_summary" onclick="window.location.href='payment.html'">
+            <div class="button-font"><p>ชำระเงิน
+              <i class="bi bi-arrow-right-short" style="margin-left: 10px;"></i></p>
+            </div>
+          </div>
+          <div class="button_again" onclick="window.location.href='page1.html'">
+            <div class="button-font"><p>สั่งออเดอร์</p>
+            </div>
+          </div>
+        </div>
+      </summary>
     </body>
-
 </html>

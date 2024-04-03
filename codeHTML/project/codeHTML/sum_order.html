@@ -17,6 +17,9 @@
             <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;" onclick="window.location.href='tap.html'"></i>
             <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.html'"></i>
         </div>
+        <div class="clockTime">
+            <div id="clock"></div>
+        </div>
     </header><br>
     <div class="button-next-1">
         <div class="button-page" onclick="window.location.href='page1.html'">
@@ -45,55 +48,92 @@
     <div class="footer" style="display: flex; justify-content: space-between; align-items: center;">
         <h2>ราคา</h2>
         <i class="bi bi-download" style="font-size: 50px; margin-left: 970px;color: black;"></i>
-        <h3 style="color: black; margin-right: 30px">เพิ่มสินค้าลงในตะกร้า</h3>
+        <div class="button" onclick="addToCart()">
+            <h3 style="color: black; margin-right: 30px">เพิ่มสินค้าลงในตะกร้า</h3>
+        </div>
     </div>
-      
 
     <script>
-      window.addEventListener('load', () => {
-        const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
-        const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
-        const selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [];
-        const selectedTopping = JSON.parse(localStorage.getItem('selectedTopping')) || [];
-        const selectedList = document.getElementById('selected-list');
-        let meatsText = '';
-        let vegetableText = '';
-        let sauceText = '';
-        let ToppingText = '';
+        window.addEventListener('load', () => {
+            const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
+            const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
+            const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
+            const selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [];
+            const selectedTopping = JSON.parse(localStorage.getItem('selectedTopping')) || [];
+            const selectedList = document.getElementById('selected-list');
+            let breadText = '';
+            let meatsText = '';
+            let vegetableText = '';
+            let sauceText = '';
+            let ToppingText = '';
 
-        selectedMeats.forEach((meat, index) => {
-            meatsText += `${meat}`;
-            if (index !== selectedMeats.length - 1) {
-                meatsText += ', ';
-            }
-        });
+            selectedBread.forEach((bread, index) => {
+                breadText += `${bread}`;
+                if (index !== selectedBread.length - 1) {
+                    breadText += ', ';
+                }
+            });
 
-        selectedVegetable.forEach((vegetable, index) => {
-            vegetableText += `${vegetable}`;
-            if (index !== selectedVegetable.length - 1) {
-                vegetableText += ', ';
-            }
-        });
+            selectedMeats.forEach((meat, index) => {
+                meatsText += `${meat}`;
+                if (index !== selectedMeats.length - 1) {
+                    meatsText += ', ';
+                }
+            });
 
-        selectedSauce.forEach((sauce, index) => {
-            sauceText += `${sauce}`;
-            if (index !== selectedSauce.length - 1) {
-                sauceText += ', ';
-            }
-        });
+            selectedVegetable.forEach((vegetable, index) => {
+                vegetableText += `${vegetable}`;
+                if (index !== selectedVegetable.length - 1) {
+                    vegetableText += ', ';
+                }
+            });
 
-        selectedTopping.forEach((topping, index) => {
-            ToppingText += `${topping}`;
-            if (index !== selectedTopping.length - 1) {
-                ToppingText += ', ';
-            }
-        });
+            selectedSauce.forEach((sauce, index) => {
+                sauceText += `${sauce}`;
+                if (index !== selectedSauce.length - 1) {
+                    sauceText += ', ';
+                }
+            });
 
-        selectedList.innerHTML = `ขนมปังที่เลือก: <br><br><br><br> เนื้อสัตว์ที่เลือก: ${meatsText}<br><br><br><br>
+            selectedTopping.forEach((topping, index) => {
+                ToppingText += `${topping}`;
+                if (index !== selectedTopping.length - 1) {
+                    ToppingText += ', ';
+                }
+            });
+
+            selectedList.innerHTML = `ขนมปังที่เลือก: <br><br><br><br> เนื้อสัตว์ที่เลือก: ${meatsText}<br><br><br><br>
         ผักที่เลือก: ${vegetableText}<br><br><br><br>ซอสที่ที่เลือก: ${sauceText}<br><br><br><br>ท็อปปิ้งที่ที่เลือก: ${ToppingText}<br>`;
 
-    });
-  </script>
-  
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+
+                hours = hours < 10 ? '0' + hours : hours;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                var timeString = hours + ':' + minutes + ':' + seconds;
+                document.getElementById('clock').innerHTML = timeString;
+            }
+
+            setInterval(updateClock, 1000); // อัพเดทเวลาทุกๆ 1 วินาที
+            updateClock(); // เรียกใช้ฟังก์ชันเพื่อแสดงเวลาครั้งแรกทันทีเมื่อหน้าเว็บโหลด
+        });
+
+        function addToCart() {
+            // ดำเนินการเพิ่มสินค้าลงในตะกร้า ตามที่ต้องการ
+            // ล้างสถานะการเลือกใน localStorage
+            localStorage.removeItem('selectedMeats');
+            localStorage.removeItem('selectedVegetable');
+            localStorage.removeItem('selectedSauce');
+            localStorage.removeItem('selectedTopping');
+            // นำผู้ใช้ไปยังหน้าตะกร้าหลังจากเพิ่มสินค้าเรียบร้อย
+            window.location.href = 'cart.html';
+        }
+    </script>
+
 </body>
 </html>

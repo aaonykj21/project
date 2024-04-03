@@ -15,7 +15,15 @@ body {
     color: #fff;
     padding: 2px 30px;
   }
-  
+  #clock {
+    font-size: 0.7em;
+  }
+  .clockTime{
+     position: fixed; /* กำหนดให้นาฬิกาติดแน่นกับขอบของหน้าจอ */
+  top: 13px; /* จัดให้อยู่ที่ด้านบนสุด */
+  right: 30px; /* ระยะห่างจากขอบขวาของหน้าจอ */
+  color: #F6F6F6;
+  }
   button {
     margin-left: 10px;
     margin-right: 10px; /* ระยะห่างของปุ่ม */
