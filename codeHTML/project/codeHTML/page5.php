@@ -112,15 +112,6 @@
             });
             updateSelectedItems();
         });
-        // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
-        selectedTopping.forEach((topping) => {
-            const button = document.querySelector(`button[name="topping"][value="${topping}"]`);
-            if (button) {
-                button.classList.add('active');
-                const index = Array.from(buttons).indexOf(button);
-                hiddenInputs[index].value = 1;
-            }
-        });
         function updateClock() {
   var now = new Date();
   var hours = now.getHours();

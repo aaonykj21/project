@@ -48,7 +48,7 @@
         <input type="hidden" name="bread-quantity[]" value="1">
         <button type="button" name="bread" value="ฮันนี่โอ๊ต"><img src="img/bread/honeyoat.png" width="150" height="100"><br>ฮันนี่ โอ๊ต<br>+30บาท</button>
         <input type="hidden" name="bread-quantity[]" value="1">
-        <button type="button" name="bread" value="เซซษมี"><img src="img/bread/sesame.png" width="150" height="100"><br>เซซามี<br>+30บาท</button>
+        <button type="button" name="bread" value="เซซามี"><img src="img/bread/sesame.png" width="150" height="100"><br>เซซามี<br>+30บาท</button>
         <input type="hidden" name="bread-quantity[]" value="1">
         <button type="button" name="bread" value="พาเมซาน ออริกาโน"><img src="img/bread/pamesan.png" width="150" height="100"><br>พาร์เมซาน ออริกาโน<br>+30บาท</button>
         <input type="hidden" name="bread-quantity[]" value="1">
@@ -72,8 +72,8 @@
                 if (indexToRemove !== -1) {
                   selectedBread.splice(indexToRemove, 1);
                 }
-            } else if (numSelected < 2) {
-                hiddenInputs[index].value = 1;
+            } else if (numSelected < 1) {
+                hiddenInputs[index].value = 0;
                 button.classList.add('active');
                 selectedBread.push(button.value);
             }
@@ -87,14 +87,9 @@
         selectedBread.forEach((selectedBread, index) => {
             const value = selectedBread.getAttribute('value');
             selectedItemsText += `${value}`;
-
         });
-
         localStorage.setItem('selectedBread', JSON.stringify(Array.from(selectedBread).map(bread => bread.getAttribute('value'))));
     }
-
-
-
     // เพิ่มในส่วนที่จะเรียกใช้งานหน้าอื่น
     window.addEventListener('load', () => {
         const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
@@ -107,15 +102,6 @@
             }
         });
         updateSelectedItems();
-    });
-    // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
-    selectedBread.forEach((bread) => {
-        const button = document.querySelector(`button[name="bread"][value="${bread}"]`);
-        if (button) {
-            button.classList.add('active');
-            const index = Array.from(buttons).indexOf(button);
-            hiddenInputs[index].value = 1;
-        }
     });
     function updateClock() {
 var now = new Date();
