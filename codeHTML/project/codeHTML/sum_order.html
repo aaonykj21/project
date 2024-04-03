@@ -106,7 +106,8 @@
             selectedList.innerHTML = `ขนมปังที่เลือก: ${breadText}<br><br><br><br> เนื้อสัตว์ที่เลือก: ${meatsText}<br><br><br><br>
         ผักที่เลือก: ${vegetableText}<br><br><br><br>ซอสที่ที่เลือก: ${sauceText}<br><br><br><br>ท็อปปิ้งที่ที่เลือก: ${ToppingText}<br>`;
 
-            function updateClock() {
+        });
+        function updateClock() {
                 var now = new Date();
                 var hours = now.getHours();
                 var minutes = now.getMinutes();
@@ -122,8 +123,6 @@
 
             setInterval(updateClock, 1000); // อัพเดทเวลาทุกๆ 1 วินาที
             updateClock(); // เรียกใช้ฟังก์ชันเพื่อแสดงเวลาครั้งแรกทันทีเมื่อหน้าเว็บโหลด
-        });
-
         function addToCart() {
             // ดำเนินการเพิ่มสินค้าลงในตะกร้า ตามที่ต้องการ
             // ล้างสถานะการเลือกใน localStorage
