@@ -1,3 +1,9 @@
+<?php
+if(isset($_POST['orderData'])){
+    $orderData = json_decode($_POST['orderData'])
+}
+?>
+
 <!DOCTYPE HTML>
 <html lang="th">
 <head>
