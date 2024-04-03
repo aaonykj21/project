@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 
 <head>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="codeCSS/page1.css">
 </head>
@@ -45,16 +46,16 @@
   <form action="/submit_form" method="post">
     <div class="button-container">
       <div class="button-slide">
-        <button type="button" name="bread" value="wheat"><img src="bread/wheat.png" width="150"
+        <button type="button" name="bread" value="wheat"><img src="img/bread/wheat.png" width="150"
             height="100"><br>วีท<br>+20บาท</button>
         <input type="hidden" name="bread[]" value="0">
-        <button type="button" name="bread" value="honeyoat"><img src="bread/honeyoat.png" width="150"
+        <button type="button" name="bread" value="honeyoat"><img src="img/bread/honeyoat.png" width="150"
             height="100"><br>ฮันนี่ โอ๊ต<br>+30บาท</button>
         <input type="hidden" name="bread[]" value="0">
-        <button type="button" name="bread" value="sesame"><img src="bread/sesame.png" width="150"
+        <button type="button" name="bread" value="sesame"><img src="img/bread/sesame.png" width="150"
             height="100"><br>เซซามี<br>+30บาท</button>
         <input type="hidden" name="bread[]" value="0">
-        <button type="button" name="bread" value="pamesanoregano"><img src="bread/pamesan.png" width="150"
+        <button type="button" name="bread" value="pamesanoregano"><img src="img/bread/pamesan.png" width="150"
             height="100"><br>พาร์เมซาน ออริกาโน<br>+30บาท</button>
         <input type="hidden" name="bread[]" value="0">
       </div>

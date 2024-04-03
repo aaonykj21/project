@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="codeCSS/page3.css">
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -45,31 +46,31 @@
             <div class="button-slide">
 
                 <button type="button" name="vegetable" value="ผักกาดแก้ว"><img
-                        src="veg/lettuce.png"><br>ผักกาดแก้ว<br>+5บาท</button>
+                        src="img/veg/lettuce.png"><br>ผักกาดแก้ว<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="มะเขือเทศ"><img
-                        src="veg/tomato.png"><br>มะเขือเทศ<br>+5บาท</button>
+                        src="img/veg/tomato.png"><br>มะเขือเทศ<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="แตงกวา"><img
-                        src="veg/cucumber.png"><br>แตงกวา<br>+5บาท</button>
+                        src="img/veg/cucumber.png"><br>แตงกวา<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="แตงกวาดอง"><img
-                        src="veg/pickle.png"><br>แตงกวาดอง<br>+5บาท</button>
+                        src="img/veg/pickle.png"><br>แตงกวาดอง<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="พริกหยวก"><img
-                        src="veg/greenpepper.png"><br>พริกหยวก<br>+5บาท</button>
+                        src="img/veg/greenpepper.png"><br>พริกหยวก<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="มะกอก"><img
-                        src="veg/olive.png"><br>มะกอก<br>+5บาท</button>
+                        src="img/veg/olive.png"><br>มะกอก<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="หอมแดง"><img
-                        src="veg/redonion.png"><br>หอมแดง<br>+5บาท</button>
+                        src="img/veg/redonion.png"><br>หอมแดง<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="พริกดอง"><img
-                        src="veg/jalapeno.png"><br>พริกดอง<br>+5บาท</button>
+                        src="img/veg/jalapeno.png"><br>พริกดอง<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
                 <button type="button" name="vegetable" value="แครอท"><img
-                        src="veg/carrot.png"><br>แครอท<br>+5บาท</button>
+                        src="img/veg/carrot.png"><br>แครอท<br>+5บาท</button>
                 <input type="hidden" name="vegetable-quantity[]" value="0">
             </div>
         </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
   <link rel="stylesheet" href="codeCSS/page5.css">
@@ -41,13 +42,13 @@
          <form action="/submit_form" method="post">
         <div class="button-container">
             <div class="button-slide">
-              <button type="button" name="topping" value="ไม่เพิ่ม"><img src="sauce/icon1.png"><br><br>ไม่เลือก</button>
+              <button type="button" name="topping" value="ไม่เพิ่ม"><img src="img/sauce/icon1.png"><br><br>ไม่เลือก</button>
         <input type="hidden" name="topping-quantity[]" value="0">
-        <button type="button" name="topping" value="มอสซาเรลาชีส"><img src="topping/mozcheese.png" width="150" height="100"><br>มอสซาเรลาชีส<br>+20บาท</button>
+        <button type="button" name="topping" value="มอสซาเรลาชีส"><img src="img/topping/mozcheese.jpg" width="150" height="100"><br>มอสซาเรลาชีส<br>+20บาท</button>
         <input type="hidden" name="topping-quantity[]" value="1">
-        <button type="button" name="topping" value="ชีสแผ่น"><img src="topping/cheese.png" width="150" height="100"><br>ชีสแผ่น<br>+20บาท</button>
+        <button type="button" name="topping" value="ชีสแผ่น"><img src="img/topping/cheese.jpg" width="150" height="100"><br>ชีสแผ่น<br>+20บาท</button>
         <input type="hidden" name="topping-quantity[]" value="1">
-        <button type="button" name="topping" value="ไข่ดาว"><img src="topping/egg.png" width="150" height="100"><br>ไข่ดาว<br>+10บาท</button>
+        <button type="button" name="topping" value="ไข่ดาว"><img src="img/topping/egg.jpg" width="150" height="100"><br>ไข่ดาว<br>+10บาท</button>
         <input type="hidden" name="topping-quantity[]" value="1">
         </div>
         </div>

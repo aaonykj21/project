@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
+    <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="codeCSS/page2.css">
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -44,22 +45,22 @@
         <div class="button-container">
             <div class="button-slide">
                 <button type="button" name="meat" value="เบคอน">
-                    <img src="meat/bacon.png"><br>เบคอน<br>+30บาท</button>
+                    <img src="img/meat/bacon.png"><br>เบคอน<br>+30บาท</button>
                 <input type="hidden" name="meat-quantity[]" value="0">
                 <button type="button" name="meat" value="สเต็กเนื้อ">
-                    <img src="meat/beef.png"><br>สเต็กเนื้อ<br>+30บาท</button>
+                    <img src="img/meat/beef.png"><br>สเต็กเนื้อ<br>+30บาท</button>
                 <input type="hidden" name="meat-quantity[]" value="0">
                 <button type="button" name="meat" value="ทูน่า">
-                    <img src="meat/tuna.png"><br>ทูน่า<br>+20บาท</button>
+                    <img src="img/meat/tuna.png"><br>ทูน่า<br>+20บาท</button>
                 <input type="hidden" name="meat-quantity[]" value="0">
                 <button type="button" name="meat" value="ไก่บูลโกกิ">
-                    <img src="meat/chicken.png"><br>ไก่บูลโกกิ<br>+20บาท</button>
+                    <img src="img/meat/chicken.png"><br>ไก่บูลโกกิ<br>+20บาท</button>
                 <input type="hidden" name="meat-quantity[]" value="0">
                 <button type="button" name="meat" value="แฮมหมู">
-                    <img src="meat/ham.png"><br>แฮมหมู<br>+30บาท</button>
+                    <img src="img/meat/ham.png"><br>แฮมหมู<br>+30บาท</button>
                 <input type="hidden" name="meat-quantity[]" value="0">
                 <button type="button" name="meat" value="เปปเปอโรนี"><img
-                        src="meat/pepper.png"><br>เปปเปอโรนี<br>+30บาท</button>
+                        src="img/meat/pepper.png"><br>เปปเปอโรนี<br>+30บาท</button>
                 <input type="hidden" name="meat-quantity[]" value="0">
             </div>
         </div>

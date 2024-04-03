@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="codeCSS/page4.css">
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
@@ -43,37 +44,37 @@
         <div class="button-container">
             <div class="button-slide">
                 <button type="button" name="sauce" value="ไม่เลือก">
-                    <img src="sauce/icon1.png"><br><br>ไม่เลือก</button>
+                    <img src="img/sauce/icon1.png"><br><br>ไม่เลือก</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="ซอสมะเขือเทศ">
-                    <img src="sauce/ketchup.png"><br>ซอสมะเขือเทศ<br>ฟรี</button>
+                    <img src="img/sauce/ketchup.png"><br>ซอสมะเขือเทศ<br>ฟรี</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="มายองเนส">
-                    <img src="sauce/mayon.png"><br>มายองเนส<br>ฟรี</button>
+                    <img src="img/sauce/mayon.png"><br>มายองเนส<br>ฟรี</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="บาร์บีคิว">
-                    <img src="sauce/bbq.png"><br>บาร์บีคิว<br>+10บาท</button>
+                    <img src="img/sauce/bbq.png"><br>บาร์บีคิว<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="ซีซาร์">
-                    <img src="sauce/seasar.png"><br>ซีซาร์<br>+10บาท</button>
+                    <img src="img/sauce/seasar.png"><br>ซีซาร์<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="เชดด้าชีส">
-                    <img src="sauce/cheese.png"><br>เชดด้าชีส<br>+10บาท</button>
+                    <img src="img/sauce/cheese.png"><br>เชดด้าชีส<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="ชิลลี่"><img
-                        src="sauce/chilli.png"><br>ชิลลี่<br>+10บาท</button>
+                        src="img/sauce/chilli.png"><br>ชิลลี่<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="ฮันนี่มัสตาร์ด">
-                    <img src="sauce/honeymustard.png"><br>ฮันนี่มัสตาร์ด<br>+10บาท</button>
+                    <img src="img/sauce/honeymustard.png"><br>ฮันนี่มัสตาร์ด<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="สไปซี่มาโย">
-                    <img src="sauce/spicymayo.png"><br>สไปซี่มาโย<br>+10บาท</button>
+                    <img src="img/sauce/spicymayo.png"><br>สไปซี่มาโย<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="สวีทออนเนี่ยน">
-                    <img src="sauce/sweetonian.png"><br>สวีทออนเนี่ยน<br>+10บาท</button>
+                    <img src="img/sauce/sweetonian.png"><br>สวีทออนเนี่ยน<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
                 <button type="button" name="sauce" value="สวีทชิลลี่">
-                    <img src="sauce/sweetchilli.png"><br>สวีทชิลลี่<br>+10บาท</button>
+                    <img src="img/sauce/sweetchilli.png"><br>สวีทชิลลี่<br>+10บาท</button>
                 <input type="hidden" name="sauce-quantity[]" value="0">
             </div>
         </div>

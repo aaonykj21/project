@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="'th">
+    <meta charset="UTF-8">
     <body>
         <h1>ชำระเงิน</h1>
         <form class="payment" name=”SelectPayment”>
