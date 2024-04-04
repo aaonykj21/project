@@ -9,6 +9,10 @@
 <body>
   <header>
     <h1>ตะกร้า</h1>
+    <div style="display: flex;">
+      <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
+        onclick="window.location.href='tap.html'"></i>
+    </div>
     <div class="clockTime">
       <div id="clock"></div>
   </div>
