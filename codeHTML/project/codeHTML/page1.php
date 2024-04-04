@@ -1,13 +1,5 @@
 <!DOCTYPE html>
-<?php
-// เริ่ม session (หากยังไม่ได้เริ่ม)
-  session_start();
-// ตรวจสอบว่ามีการส่งข้อมูลมาจากฟอร์มหรือไม่
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // เก็บค่าที่ได้รับจากฟอร์มลงในตัวแปร session
-    $_SESSION['bread'] = $_POST['bread-quantity[]'];
-}
-?>
+
 <html>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="codeCSS/page1.css">

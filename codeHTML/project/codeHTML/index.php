@@ -16,11 +16,11 @@ $query = mysqli_query($conn, "INSERT INTO order_detail(bread_name,meat_name,veg_
 
 // ทำการบันทึกข้อมูลลงในฐานข้อมูล
 if ($query) {
-    /*echo "Record added successfully";*/
-    $_SESSION['message'] = 'Order Saved';
+    echo "Record added successfully";
+    /*$_SESSION['message'] = 'Order Saved';*/
 } else {
-    $_SESSION['message'] = 'Order could not be saved';
-    /*echo "Error: " . $sql . "<br>" . $conn->error;*/
+   /* $_SESSION['message'] = 'Order could not be saved';*/
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 // ปิดการเชื่อมต่อกับ MySQL

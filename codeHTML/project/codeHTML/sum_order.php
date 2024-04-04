@@ -54,8 +54,13 @@
             <h3 style="color: black; margin-right: 30px">เพิ่มสินค้าลงในตะกร้า</h3>
         </div>
     </div>
+    <?php if($rows > 0): ?>
+        <?php while($bread = mysqli_fetch_assoc($squry)); ?>
+        
 
-    <script>
+
+
+    <!--script>
         window.addEventListener('load', () => {
             const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
             const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
@@ -149,7 +154,7 @@
     window.location.href = 'cart.php';
 }
 
-    </script>
+    </script-->
 
 </body>
 </html>
