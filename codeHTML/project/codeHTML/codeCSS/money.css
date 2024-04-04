@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow: hidden;
+    font-family: 'Chonburi';font-size: 20px;
+    /* ไม่ให้เลื่อนหน้าจอ */
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #028940;
+    color: #fff;
+    padding: 2px 30px;
+  }
+  #clock {
+    font-size: 0.7em;
+  }
+  .clockTime{
+     position: fixed; /* กำหนดให้นาฬิกาติดแน่นกับขอบของหน้าจอ */
+  top: 13px; /* จัดให้อยู่ที่ด้านบนสุด */
+  right: 30px; /* ระยะห่างจากขอบขวาของหน้าจอ */
+  color: #F6F6F6;
+  }
+ 

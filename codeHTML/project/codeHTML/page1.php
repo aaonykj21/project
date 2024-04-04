@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <form action="/submit_form" method="post">
     <div class="button-container">
       <div class="button-slide">
-        <button type="button" name="bread-quantity[]" value="วีท"><img src="img/bread/wheat.png" width="150" height="100"><br>วีท<br>+20บาท</button>
+        <button type="button" name="bread" value="วีท"><img src="img/bread/wheat.png" width="150" height="100"><br>วีท<br>+20บาท</button>
         <input type="hidden" name="bread-quantity[]" value="1">
         <button type="button" name="bread" value="ฮันนี่โอ๊ต"><img src="img/bread/honeyoat.png" width="150" height="100"><br>ฮันนี่ โอ๊ต<br>+30บาท</button>
         <input type="hidden" name="bread-quantity[]" value="1">
@@ -81,8 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (indexToRemove !== -1) {
                   selectedBread.splice(indexToRemove, 1);
                 }
-            } else if (numSelected < 1) {
-                hiddenInputs[index].value = 0;
+            } else if (numSelected < 2) {
+                hiddenInputs[index].value = 1;
                 button.classList.add('active');
                 selectedBread.push(button.value);
             }

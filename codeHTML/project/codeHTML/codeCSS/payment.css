@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow: hidden;
+    font-family: 'Chonburi';font-size: 20px;
+    /* ไม่ให้เลื่อนหน้าจอ */
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #028940;
+    color: #fff;
+    padding: 2px 30px;
+  }
+  #clock {
+    font-size: 0.7em;
+  }
+  .clockTime{
+     position: fixed; /* กำหนดให้นาฬิกาติดแน่นกับขอบของหน้าจอ */
+  top: 13px; /* จัดให้อยู่ที่ด้านบนสุด */
+  right: 30px; /* ระยะห่างจากขอบขวาของหน้าจอ */
+  color: #F6F6F6;
+  }
+  button {
+    margin-left: 10px;
+    margin-right: 10px; /* ระยะห่างของปุ่ม */
+    width: 360px; /* กำหนดความกว้างของปุ่ม */
+    background-color: #F6F6F6;
+    border: none;
+    border-radius: 40px;
+  }
+  .button-container {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+  }
+
+.selectable-button:hover {
+    /* สไตล์เมื่อเมาส์ hover ไปที่ปุ่ม */
+    background-color: #BEBEBE; /* เปลี่ยนสีพื้นหลัง */
+}
+
+.selectable-button.selected {
+    /* สไตล์เมื่อปุ่มถูกเลือก */
+    background-color: #028940; /* เปลี่ยนสีพื้นหลัง */
+    color: #ffffff; /* เปลี่ยนสีข้อความ */
+}
