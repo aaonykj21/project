@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 $data = json_decode(file_get_contents('php://input'), true);
 
 // สร้างคำสั่ง SQL สำหรับการเพิ่มข้อมูลลงในฐานข้อมูล
-$sql = "INSERT INTO order_detail (bread_name, meat_name, veg_name, sauce_name, topping_name)
+$sql = "INSERT INTO order_detail(bread_name, meat_name, veg_name, sauce_name, topping_name)
         VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssss", $data['bread'], $data['meat'], $data['vegetable'], $data['sauce'], $data['topping']);
