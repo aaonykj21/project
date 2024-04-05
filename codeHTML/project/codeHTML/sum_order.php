@@ -54,14 +54,10 @@
             <h3 style="color: black; margin-right: 30px">เพิ่มสินค้าลงในตะกร้า</h3>
         </div>
     </div>
-    <?php if($rows > 0): ?>
-        <?php while($bread = mysqli_fetch_assoc($squry)); ?>
-        
 
-
-
-    <!--script>
+    <script>
         window.addEventListener('load', () => {
+            
             const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
             const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
             const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
@@ -131,30 +127,34 @@
         });
 
         function addToCart() {
+    const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
+    const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
+    const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
+    const selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [];
+    const selectedTopping = JSON.parse(localStorage.getItem('selectedTopping')) || [];
+
     const order = {
-        breads: JSON.parse(localStorage.getItem('selectedBread')) || [],
-        meats: JSON.parse(localStorage.getItem('selectedMeats')) || [],
-        vegetables: JSON.parse(localStorage.getItem('selectedVegetable')) || [],
-        sauces: JSON.parse(localStorage.getItem('selectedSauce')) || [],
-        toppings: JSON.parse(localStorage.getItem('selectedTopping')) || []
+        breads: selectedBread,
+        meats: selectedMeats,
+        vegetables: selectedVegetable,
+        sauces: selectedSauce,
+        toppings: selectedTopping
     };
 
-    let orders = JSON.parse(localStorage.getItem('orders')) || [];
-    orders.push(order);
-    localStorage.setItem('orders', JSON.stringify(orders));
-
-    // ล้างสถานะการเลือกใน localStorage
-    localStorage.removeItem('selectedBread');
-    localStorage.removeItem('selectedMeats');
-    localStorage.removeItem('selectedVegetable');
-    localStorage.removeItem('selectedSauce');
-    localStorage.removeItem('selectedTopping');
-
-    // นำผู้ใช้ไปยังหน้าตะกร้าหลังจากเพิ่มสินค้าเรียบร้อย
-    window.location.href = 'cart.php';
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'index.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            alert('ส่งข้อมูลสำเร็จ');
+            localStorage.clear(); // ล้างข้อมูลที่เลือกทั้งหมดหลังจากส่งข้อมูลเรียบร้อยแล้ว
+        }
+    };
+    xhr.send(JSON.stringify(order));
 }
 
-    </script-->
+
+    </script>
 
 </body>
 </html>
