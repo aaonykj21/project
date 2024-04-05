@@ -17,12 +17,13 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssss", $data['bread'], $data['meat'], $data['vegetable'], $data['sauce'], $data['topping']);
 
 // ทำการบันทึกข้อมูลลงในฐานข้อมูล
-if ($conn->query($sql) === TRUE) {
+if ($stmt->execute()) {
     echo "Record added successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 // ปิดการเชื่อมต่อกับ MySQL
+$stmt->close();
 $conn->close();
 ?>

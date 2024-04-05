@@ -134,11 +134,11 @@
     const selectedTopping = JSON.parse(localStorage.getItem('selectedTopping')) || [];
 
     const order = {
-        breads: selectedBread,
-        meats: selectedMeats,
-        vegetables: selectedVegetable,
-        sauces: selectedSauce,
-        toppings: selectedTopping
+        breads: selectedBread.join(', '),
+        meats: selectedMeats.join(', '),
+        vegetables: selectedVegetable.join(', '),
+        sauces: selectedSauce.join(', '),
+        toppings: selectedTopping.join(', ')
     };
 
     let xhr = new XMLHttpRequest();
