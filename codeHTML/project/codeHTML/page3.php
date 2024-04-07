@@ -33,7 +33,7 @@
         <div class="button-page" onclick="window.location.href='page5.php'">
             <i class="bi bi-5-circle-fill"></i>
         </div>
-        <div class="button-page" onclick="window.location.href='sum_order.html'">
+        <div class="button-page" onclick="window.location.href='sum_order.php'">
             <i class="bi bi-6-circle-fill"></i>
         </div>
     </div>

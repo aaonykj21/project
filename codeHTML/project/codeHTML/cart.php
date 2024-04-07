@@ -9,6 +9,10 @@
 <body>
   <header>
     <h1>ตะกร้า</h1>
+    <div style="display: flex;">
+      <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"
+        onclick="window.location.href='tap.html'"></i>
+    </div>
     <div class="clockTime">
       <div id="clock"></div>
   </div>
@@ -18,51 +22,20 @@
       <h3>สรุปออเดอร์</h3>
       <p>ยอดรวม</p>
       <div class="button_summary" id="paymentButton">
-        <div class="button-font">
+        <div class="button-font" onclick="window.location.href='payment.php'">
           <p>ชำระเงิน
             <i class="bi bi-arrow-right-short" style="margin-left: 10px;"></i>
           </p>
         </div>
       </div>
-      <div class="button_again" onclick="window.location.href='page1.html'">
+      <div class="button_again" onclick="window.location.href='page1.php'">
         <div class="button-font">
           <p>สั่งออเดอร์</p>
         </div>
       </div>
     </div>
   </summary>
-  <div id="overlayContent" class="overlay-content" style="display: none;">
-    <div id="paymentText" >Payment</div>
-    <button class="close-button" id="closeButton" style="display: none;">
-      <i class="bi bi-x-lg"></i>
-  </button>
   <script>
-     document.getElementById('paymentButton').addEventListener('click', function () {
-      var overlay = document.createElement('div');
-      overlay.classList.add('overlay');
-      document.body.appendChild(overlay);
-
-      var overlayContent = document.createElement('div');
-      overlayContent.classList.add('overlay-content');
-      overlay.appendChild(overlayContent);
-
-      var paymentText = document.createElement('p');
-      paymentText.innerText = 'Payment';
-      overlayContent.appendChild(paymentText);
-
-      var closeButton = document.createElement('button');
-      closeButton.classList.add('close-button');
-      closeButton.innerHTML = '<i class="bi bi-x-lg"></i>'; // ใช้ไอคอนของ Bootstrap Icons
-      overlayContent.appendChild(closeButton);
-
-      overlay.addEventListener('click', function () {
-        document.body.removeChild(overlay);
-      });
-
-      closeButton.addEventListener('click', function () {
-        document.body.removeChild(overlay);
-      });
-    });
     function updateClock() {
   var now = new Date();
   var hours = now.getHours();

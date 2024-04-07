@@ -15,54 +15,41 @@ body {
     color: #fff;
     padding: 2px 30px;
   }
-  summary{
-    width: 25vw;
-    height: 15vw;
-    background-color: #FFFFF0;
-    border: solid#D3D3D3;
-    border-radius: 30px;
-    margin: 120px 70%;
+  #clock {
+    font-size: 0.7em;
   }
-  .summary-font{
-    padding: 1px 30px;
+  .clockTime{
+     position: fixed; /* กำหนดให้นาฬิกาติดแน่นกับขอบของหน้าจอ */
+  top: 13px; /* จัดให้อยู่ที่ด้านบนสุด */
+  right: 30px; /* ระยะห่างจากขอบขวาของหน้าจอ */
+  color: #F6F6F6;
   }
-  .button_summary{
-    background-color: #028940;
+  button {
+    margin-left: 10px;
+    margin-right: 10px; /* ระยะห่างของปุ่ม */
+    width: 360px; /* กำหนดความกว้างของปุ่ม */
+    background-color: #F6F6F6;
     border: none;
-    border-radius: 10px;
-    position: relative;
-    width: 45%;
-    height: 50px;
-    margin-left: 55%;
-    overflow: hidden;
+    border-radius: 40px;
   }
-  .button_again{
-    background-color: #FFC20D;
-    border: none;
-    border-radius: 10px;
+  .button-container {
     position: relative;
-    width: 45%;
-    height: 50px;
+    width: 100%;
+    height: 420px;
     overflow: hidden;
-    margin-top: -16%;
-  }
-  .button-font{
+    display: flex;
+    justify-content: center;
     align-items: center;
-    color: #fff;
-    position: relative;
-    width: 100%;
-    height: 100px;
-    overflow: hidden;
-    padding: 1px 20px;
-    top: -20%;
+    margin: 100px auto;
   }
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* สีดำโปร่งใส */
-    z-index: 9999; /* ให้สี่เหลี่ยมอยู่หน้าสุด */
-  }
-  
+
+.selectable-button:hover {
+    /* สไตล์เมื่อเมาส์ hover ไปที่ปุ่ม */
+    background-color: #BEBEBE; /* เปลี่ยนสีพื้นหลัง */
+}
+
+.selectable-button.selected {
+    /* สไตล์เมื่อปุ่มถูกเลือก */
+    background-color: #028940; /* เปลี่ยนสีพื้นหลัง */
+    color: #ffffff; /* เปลี่ยนสีข้อความ */
+}

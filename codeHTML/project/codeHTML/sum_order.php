@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="th">
 <head>
@@ -38,7 +39,7 @@
         <div class="button-page" onclick="window.location.href='page5.php'">
             <i class="bi bi-5-circle-fill"></i>
         </div>
-        <div class="button-page" onclick="window.location.href='sum_order.html'">
+        <div class="button-page" onclick="window.location.href='sum_order.php'">
             <i class="bi bi-6-circle-fill"></i>
         </div>
     </div>
@@ -56,6 +57,7 @@
 
     <script>
         window.addEventListener('load', () => {
+            
             const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
             const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
             const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
@@ -124,16 +126,33 @@
             setInterval(updateClock, 1000); // อัพเดทเวลาทุกๆ 1 วินาที
             updateClock(); // เรียกใช้ฟังก์ชันเพื่อแสดงเวลาครั้งแรกทันทีเมื่อหน้าเว็บโหลด
         function addToCart() {
-            // ดำเนินการเพิ่มสินค้าลงในตะกร้า ตามที่ต้องการ
-            // ล้างสถานะการเลือกใน localStorage
-            localStorage.removeItem('selectedBread');
-            localStorage.removeItem('selectedMeats');
-            localStorage.removeItem('selectedVegetable');
-            localStorage.removeItem('selectedSauce');
-            localStorage.removeItem('selectedTopping');
-            // นำผู้ใช้ไปยังหน้าตะกร้าหลังจากเพิ่มสินค้าเรียบร้อย
-            window.location.href = 'cart.php';
+    const selectedBread = JSON.parse(localStorage.getItem('selectedBread')) || [];
+    const selectedMeats = JSON.parse(localStorage.getItem('selectedMeats')) || [];
+    const selectedVegetable = JSON.parse(localStorage.getItem('selectedVegetable')) || [];
+    const selectedSauce = JSON.parse(localStorage.getItem('selectedSauce')) || [];
+    const selectedTopping = JSON.parse(localStorage.getItem('selectedTopping')) || [];
+
+    const order = {
+        bread: selectedBread.join(', '),
+        meat: selectedMeats.join(', '),
+        vegetable: selectedVegetable.join(', '),
+        sauce: selectedSauce.join(', '),
+        topping: selectedTopping.join(', ')
+    };
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', 'index.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            alert('ส่งข้อมูลสำเร็จ');
+            localStorage.clear(); // ล้างข้อมูลที่เลือกทั้งหมดหลังจากส่งข้อมูลเรียบร้อยแล้ว
         }
+    };
+    xhr.send(JSON.stringify(order));
+}
+
+
     </script>
 
 </body>

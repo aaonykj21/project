@@ -2,11 +2,11 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="codeCSS/payment.css">
+    <link rel="stylesheet" href="codeCSS/money.css">
 </head>
 <body>
     <header>
-        <h1>เลือกการชำระเงิน</h1>
+        <h1>ชำระเงิน</h1>
         <div style="display: flex;">
             <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;" onclick="window.location.href='tap.html'"></i>
         </div>
@@ -14,11 +14,9 @@
             <div id="clock"></div>
         </div>
     </header>
-    <div class="button-container">
-        <button class="selectable-button" onclick="selectButton(this)"><i class="bi bi-cash-coin" style="font-size: 300px;" onclick="window.location.href='money.php'"></i><br><h1>เงินสด</h1></button>
-        <button class="selectable-button" onclick="selectButton(this)"><i class="bi bi-qr-code-scan" style="font-size: 300px;"></i><br><h1>คิวอาร์โค้ด</h1></button>
-        <button class="selectable-button" onclick="selectButton(this)"><i class="bi bi-wallet2" style="font-size: 300px;"></i><br><h1>ทรูมันนี่</h1></button>
-    </div>
+    <center>
+    <p><i class="bi bi-cash" style="font-size: 200px; color:#028940"></i></p>
+    </center>
     <script>
         var selectedButton = null;
 

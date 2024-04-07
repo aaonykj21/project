@@ -129,7 +129,6 @@ button {
 }
 button:not(.active):hover {
   background-color: #BEBEBE;
-  color: #fff;
 }
 img {
   width: 340px;

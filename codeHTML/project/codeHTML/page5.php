@@ -9,7 +9,7 @@
             <h1>คำสั่งซื้อ</h1>
             <div style="display: flex;">
               <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;" onclick="window.location.href='tap.html'"></i>
-              <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.html'"></i>
+              <i class="bi bi-basket" style="font-size: 30px;" onclick="window.location.href='cart.php'"></i>
             </div>
             <div class="clockTime">
               <div id="clock"></div>
@@ -31,13 +31,13 @@
             <div class="button-page" onclick="window.location.href='page5.php'">
               <i class="bi bi-5-circle-fill"></i>
             </div>
-            <div class="button-page" onclick="window.location.href='sum_order.html'">
+            <div class="button-page" onclick="window.location.href='sum_order.php'">
               <i class="bi bi-6-circle-fill"></i>
             </div>
         </div>
         <br>
         <div class="button-next-next">
-            <div class="button-next-page" onclick="window.location.href='sum_order.html'">ต่อไป
+            <div class="button-next-page" onclick="window.location.href='sum_order.php'">ต่อไป
             </div>
             <h1 style="color: #FFC20D; margin-bottom: 5px;">เลือกท็อปปื้ง</h1>
             <h4 style="margin-top: 5px;color:#D9D9D9;">เลือกได้ 2 อย่าง</h4>
@@ -111,15 +111,6 @@
                 }
             });
             updateSelectedItems();
-        });
-        // ตรวจสอบว่าเนื้อสัตว์ไหนถูกเลือกไว้แล้ว
-        selectedTopping.forEach((topping) => {
-            const button = document.querySelector(`button[name="topping"][value="${topping}"]`);
-            if (button) {
-                button.classList.add('active');
-                const index = Array.from(buttons).indexOf(button);
-                hiddenInputs[index].value = 1;
-            }
         });
         function updateClock() {
   var now = new Date();
